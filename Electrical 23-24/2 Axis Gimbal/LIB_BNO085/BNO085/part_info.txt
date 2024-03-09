@@ -1,0 +1,9 @@
+Manufacturer=CEVA
+PartNumber=BNO085
+PartCategory=Integrated Circuit
+PackageCategory=Other
+PinCount=28
+Version=1.3
+Released=2023-09-20 08:49:42
+Downloaded=2024-02-06 23:51:13
+3D=Y

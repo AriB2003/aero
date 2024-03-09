@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'BNO085'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "CEVA", "BNO085" (!) = "", "BNO085", "Other", "526-BNO085", "https://www.mouser.co.uk/ProductDetail/CEVA/BNO085?qs=ulEaXIWI0c9BFVeZDQCmmQ%3D%3D", "Board Mount Motion & Position Sensors 9-axis IMU", "https://www.ceva-dsp.com/wp-content/uploads/2019/10/BNO080_085-Datasheet.pdf", "1.18 mm"
+END_PART
+
+END.

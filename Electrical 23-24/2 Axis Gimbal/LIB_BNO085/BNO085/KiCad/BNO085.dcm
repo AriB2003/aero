@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP BNO085
+D Board Mount Motion & Position Sensors 9-axis IMU
+K
+F https://www.ceva-dsp.com/wp-content/uploads/2019/10/BNO080_085-Datasheet.pdf
+$ENDCMP
+#
+#End Doc Library
