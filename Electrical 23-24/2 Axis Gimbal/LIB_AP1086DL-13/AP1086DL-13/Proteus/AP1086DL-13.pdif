@@ -1,0 +1,96 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "AP1086DL-13"
+   (description "LDO Voltage Regulators LDO BI 1.5A 1.4V 12V 1.25V ADJ")
+   (family "ANA")
+   (package "TO252-3L_1")
+   (attribute "Datasheet Link" "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-DIO/DSADIO2000107.pdf")
+   (attribute "Mouser Part Number" "621-AP1086DL-13")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/AP1086DL-13?qs=EJYhozv%252BYpwmQ8i36Rjd6Q%3D%3D")
+   (attribute "Manufacturer_Name" "Diodes Incorporated")
+   (attribute "Manufacturer_Part_Number" "AP1086DL-13")
+   (gate
+    (symbol "AP1086DL-13")
+    (pin "ADJ_(GND)" 1 PS)
+    (pin "VIN" 2 PS)
+    (pin "VOUT" 3 PS)
+   )
+  )
+  (symbol "AP1086DL-13"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 1200 100) (pt 1200 -200) (pt 200 -200) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1400 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "TO252-3L_1"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.254)
+     (path
+      (closed true)
+      (pt -3.4 0)
+      (pt 3.4 0)
+      (pt 3.4 -5.8)
+      (pt -3.4 -5.8)
+      (pt -3.4 0))))
+   (layer TSLK
+    (graphic
+     (stroke 0.254)
+     (path
+      (closed false)
+      (pt -3.4 0)
+      (pt -3.4 -5.8)
+      (pt 3.4 -5.8)
+      (pt 3.4 0))))
+   (layer TSLK
+    (graphic
+     (stroke 0.254)
+     (circle
+      (pt -2.40773 -10.353) (pt -2.26227 -10.353)
+     )
+    )
+   )
+   (leg 1 (pt -2.25 -8.7) (padstack 0))
+   (leg 2 (pt 2.25 -8.7) (padstack 0))
+   (leg 3 (pt 0 -1.5) (padstack 3))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 1.2 2 0 0 90))
+   )
+   (padstack 3
+    (plated false)
+    (pad (layer TCOP) (square 5.6))
+   )
+  )
+ )
+)

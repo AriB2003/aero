@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'AP1086DL_13'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET";
+{========================================================================================}
+ "Diodes Incorporated", "AP1086DL-13" (!) = "", "TO252-3L_1", "Other", "621-AP1086DL-13", "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/AP1086DL-13?qs=EJYhozv%252BYpwmQ8i36Rjd6Q%3D%3D", "LDO Voltage Regulators LDO BI 1.5A 1.4V 12V 1.25V ADJ", "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-DIO/DSADIO2000107.pdf"
+END_PART
+
+END.

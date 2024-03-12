@@ -1,0 +1,15 @@
+.AP1086DL-13 :1 ;LDO Voltage Regulators LDO BI 1.5A 1.4V 12V 1.25V ADJ
+TO252-3L_1
+*STM IC
+*NGS
+*PLB 1="ADJ (GND)" 2="VIN" 3="VOUT"
+*MXP 3
+*DFN AP1086DL-13
+~!Mouser Part Number (621-AP1086DL-13)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/AP1086DL-13?qs=EJYhozv%252BYpwmQ8i36Rjd6Q%3D%3D)
+~!Manufacturer_Name (Diodes Incorporated)
+~!Manufacturer_Part_Number (AP1086DL-13)
+~!Link Datasheet (https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-DIO/DSADIO2000107.pdf)
+~!Height (-)
+AP1086DL-13
+1.1!U 2.1!U 3.1!U 

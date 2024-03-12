@@ -1,0 +1,9 @@
+Manufacturer=Diodes Incorporated
+PartNumber=AP1086DL-13
+PartCategory=Integrated Circuit
+PackageCategory=Other
+PinCount=3
+Version=1.2
+Released=2019-08-18 10:21:41
+Downloaded=2024-03-12 20:01:36
+3D=N
