@@ -33,3 +33,7 @@ fp-info-cache
 
 # ini
 *.ini
+
+# weird
+fp-lib-table
+sym-lib-table
