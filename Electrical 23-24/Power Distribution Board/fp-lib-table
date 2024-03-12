@@ -1,4 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "Aero_PDB")(type "KiCad")(uri "${KIPRJMOD}/Aero_PDB.pretty")(options "")(descr ""))
-)
