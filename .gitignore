@@ -37,3 +37,6 @@ fp-info-cache
 # weird
 fp-lib-table
 sym-lib-table
+
+# config
+*.kicad_prl
