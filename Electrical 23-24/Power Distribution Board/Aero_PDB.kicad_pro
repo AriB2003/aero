@@ -173,6 +173,8 @@
       ],
       "track_widths": [
         0.0,
+        0.3048,
+        0.45,
         0.762,
         1.778
       ],
@@ -180,6 +182,10 @@
         {
           "diameter": 0.0,
           "drill": 0.0
+        },
+        {
+          "diameter": 0.9,
+          "drill": 0.45
         },
         {
           "diameter": 1.42,
@@ -494,6 +500,10 @@
     [
       "ec3864f8-beea-4bd9-8117-4ec49632e630",
       ""
+    ],
+    [
+      "924de76e-1f75-46a4-a5b8-caddcc783c64",
+      "Power Protection "
     ]
   ],
   "text_variables": {}
