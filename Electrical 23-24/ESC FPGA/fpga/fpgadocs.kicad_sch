@@ -1,0 +1,76 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 060e48d7-c924-4063-a731-e02ea65056ee)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (text "Configuration" (at 54.61 97.79 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 053d6542-fd01-4f71-bd64-813d3c3884ea)
+  )
+  (text "Part: XC6SLX9-2TQG144C\nDigi: https://www.digikey.com/en/products/detail/amd/XC6SLX9-2TQG144C/2339919\n\nUG380 - Configuration: https://docs.xilinx.com/v/u/en-US/ug380\nUG381 - SelectIO: https://docs.amd.com/v/u/en-US/ug381\nUG385 - Packaging & Pinout: https://docs.amd.com/v/u/en-US/ug385\nUG393 - PCB Design: https://docs.amd.com/v/u/en-US/ug393\nUG394 - Power Management: https://docs.amd.com/v/u/en-US/ug394\n\nDS160 - Family Overview: https://docs.amd.com/v/u/en-US/ds160\nDS162 - DC & Switching: https://docs.xilinx.com/v/u/en-US/ds162\n\nUG631 - ISE Design Suite 14: https://docs.xilinx.com/v/u/en-US/irn\n"
+    (at 17.78 69.85 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 47b840de-7823-4df8-a9e9-d75ab07e331d)
+  )
+  (text "Family\nOverview" (at 26.67 101.6 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 6ef14d45-8289-4c9f-b0e9-f99d37c14f77)
+  )
+
+  (sheet (at 52.07 81.28) (size 31.75 33.02)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 519bee66-d9d5-45d0-a2af-bcd947ff2d57)
+    (property "Sheetname" "UG380" (at 53.34 85.09 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "ug380.kicad_sch" (at 53.34 111.76 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "fpga"
+        (path "/5bf59577-a814-4364-8f7a-37815cfb5474/bed8e914-c952-4392-8cc1-6131598d34ad" (page "5"))
+      )
+    )
+  )
+
+  (sheet (at 20.32 162.56) (size 30.48 29.21)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid bc048676-b226-48c0-8d20-a402abca73a4)
+    (property "Sheetname" "UG631" (at 21.59 166.37 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "ug631.kicad_sch" (at 21.59 189.23 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "fpga"
+        (path "/5bf59577-a814-4364-8f7a-37815cfb5474/bed8e914-c952-4392-8cc1-6131598d34ad" (page "4"))
+      )
+    )
+  )
+
+  (sheet (at 20.32 81.28) (size 31.75 33.02)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid ee103eaa-871e-43f4-ab8b-c6c6f640162c)
+    (property "Sheetname" "DS160" (at 21.59 85.09 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "ds160.kicad_sch" (at 21.59 111.76 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "fpga"
+        (path "/5bf59577-a814-4364-8f7a-37815cfb5474" (page "2"))
+        (path "/5bf59577-a814-4364-8f7a-37815cfb5474/bed8e914-c952-4392-8cc1-6131598d34ad" (page "2"))
+      )
+    )
+  )
+)

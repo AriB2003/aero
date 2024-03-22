@@ -1,0 +1,16 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 853af998-d50b-4206-86c1-e5b0f02264c8)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (text "Page 59\nZynq QSPI (Quad Serial Peripheral Interface) Flash programming\n° Includes support for iMPACT and Software Development Kit (SDK) Flash Writer\n° Includes support for single (x4) and dual (2x4's in parallel) modes\n° Includes support for Micron Technology Inc. and Spansion Inc. QSPI Flash \n\nNote: I couldn't find Spartan-6 specific release notes, but the other UGs mention QSPI through iMPACT"
+    (at 43.18 69.85 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 274a8dea-de26-43a2-b78e-f0b34f5b46ba)
+  )
+)

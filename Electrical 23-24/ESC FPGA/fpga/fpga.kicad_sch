@@ -1,0 +1,146 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 5bf59577-a814-4364-8f7a-37815cfb5474)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (text "Xilinx Spartan 6 FPGA DevBoard" (at 212.09 190.5 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 36f9d302-493c-44d6-94f6-704d66afa907)
+  )
+  (text "Ari Bobesh" (at 222.25 196.85 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 4aae3bda-287d-4f44-b201-1e322e5d07e1)
+  )
+  (text "3/22/2024" (at 222.25 194.31 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 755e1e06-dff3-40de-8a28-b7ebfb2d3601)
+  )
+
+  (sheet (at 165.1 21.59) (size 67.31 44.45) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 1f83b38b-56ef-4110-879b-13379f9dd920)
+    (property "Sheetname" "Bank1" (at 165.1 20.8784 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "bank1.kicad_sch" (at 165.1 66.6246 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "fpga"
+        (path "/5bf59577-a814-4364-8f7a-37815cfb5474" (page "7"))
+      )
+    )
+  )
+
+  (sheet (at 165.1 77.47) (size 67.31 44.45) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 3e04db34-3f8a-4742-be82-6fa24c009343)
+    (property "Sheetname" "power" (at 165.1 76.7584 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "power.kicad_sch" (at 165.1 122.5046 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "fpga"
+        (path "/5bf59577-a814-4364-8f7a-37815cfb5474" (page "10"))
+      )
+    )
+  )
+
+  (sheet (at 90.17 77.47) (size 67.31 44.45) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 5e885406-1c13-459a-ba1f-8e2447b7cb89)
+    (property "Sheetname" "program" (at 90.17 76.7584 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "program.kicad_sch" (at 90.17 122.5046 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "fpga"
+        (path "/5bf59577-a814-4364-8f7a-37815cfb5474" (page "9"))
+      )
+    )
+  )
+
+  (sheet (at 19.05 77.47) (size 67.31 44.45) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid a286b274-4434-47ab-983d-e64806fdcbd6)
+    (property "Sheetname" "Bank2" (at 19.05 76.7584 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "bank2.kicad_sch" (at 19.05 122.5046 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "fpga"
+        (path "/5bf59577-a814-4364-8f7a-37815cfb5474" (page "8"))
+      )
+    )
+  )
+
+  (sheet (at 19.05 130.81) (size 66.04 44.45) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid a7f1449c-b9d7-4bec-9483-b96d0a6d3b19)
+    (property "Sheetname" "Regulators" (at 19.05 130.0984 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "regs.kicad_sch" (at 19.05 175.8446 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "fpga"
+        (path "/5bf59577-a814-4364-8f7a-37815cfb5474" (page "11"))
+      )
+    )
+  )
+
+  (sheet (at 19.05 21.59) (size 62.23 44.45) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid bed8e914-c952-4392-8cc1-6131598d34ad)
+    (property "Sheetname" "FPGA Docs" (at 19.05 20.8784 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "fpgadocs.kicad_sch" (at 19.05 66.6246 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "fpga"
+        (path "/5bf59577-a814-4364-8f7a-37815cfb5474" (page "3"))
+      )
+    )
+  )
+
+  (sheet (at 90.17 21.59) (size 66.04 44.45) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid edbd8098-adc9-4a81-8225-56e5824f7b8b)
+    (property "Sheetname" "QSPI" (at 90.17 20.8784 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "qspi.kicad_sch" (at 90.17 66.6246 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "fpga"
+        (path "/5bf59577-a814-4364-8f7a-37815cfb5474" (page "6"))
+      )
+    )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)

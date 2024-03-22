@@ -1,0 +1,30 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid da175717-ef9e-4ca0-b696-acd848731689)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (text "Page 20\n- Configuration bank voltage must comply with flash\n- Vccaux level 2.5V default, 3.3V settable\n\nPage 21\n- Mode pins M[1:0] are 01 for Main SPI and XX for JTAG\n- Mode pins have internal pullup!"
+    (at 46.99 67.31 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 285202a8-4495-4427-8e66-81a725c1a058)
+  )
+  (text "Page 42\n- QSPI Configuration Schema" (at 46.99 147.32 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 4450a21c-6b13-49a5-ac2c-d7e0dc226a88)
+  )
+  (text "Page 48\nOne of the following system design approaches can ensure that the SPI flash is ready to \nreceive commands before the FPGA starts its configuration procedure:\n• Control the sequence of the power supplies such that the SPI flash is certain to be \npowered and ready for asynchronous reads before the FPGA begins its configuration \nprocedure.\n• Hold the FPGA PROGRAM_B pin Low from power-up to delay the start of the FPGA \nconfiguration procedure and release the PROGRAM_B pin to High after the SPI flash \nis fully powered and is able to receive commands.\n• Hold the FPGA INIT_B pin Low from power-up to delay the start of the FPGA \nconfiguration procedure and release the INIT_B pin to High after the SPI flash \nbecomes ready to receive commands"
+    (at 46.99 177.8 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 708b2fd7-db8a-4a0c-9678-8de13883ca74)
+  )
+  (text "Page 40\nThe iMPACT programming software provides the ability to program an SPI serial flash \nusing an indirect programming method. This downloads a new FPGA design that \nprovides a connection from the iMPACT software through the Spartan-6 device to the SPI \nflash. Previous FPGA memory contents are lost. For a list of supported SPI flash devices in \nthe latest version of software, see Introduction to Indirect Programming - SPI or BPI Flash \nMemory."
+    (at 46.99 134.62 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid bbee67bb-09ca-4d6d-aef3-51d107e64e78)
+  )
+)

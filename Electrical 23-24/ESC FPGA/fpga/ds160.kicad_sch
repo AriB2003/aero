@@ -1,0 +1,31 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 7a421b20-cb4f-4ff2-8df1-5a5049868c37)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (text "XC6SLX9 Feature Summary (Page 2)\nDevice Logic Cells\nCLB: Slices\nCLB: Flip-Flops\nCLB: Max Distributed RAM\nDSP48A1 Slices\nBlock RAM Blocks: 18 kB \nBlock RAM Blocks: Max kB \nCMTs\nMemory Controller Blocks \nEndpoint Blocks for PCI Express\nMaximum GTP Transceivers\nTotal I/O Banks\nMax User I/O\n"
+    (at 93.98 78.74 0)
+    (effects (font (size 2.54 2.54)) (justify right bottom))
+    (uuid 17aaaafa-b3e7-4272-b088-527f2263d917)
+  )
+  (text "- -2 Speed Grade (Page 9)\n- Commercial Temp Rating (0-85C)"
+    (at 24.13 139.7 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 5a53066a-df77-45e5-9c00-9de10ffad031)
+  )
+  (text "9,152\n1,430\n11,440\n90\n16\n32 (two ports each)\n576\n2 (each has two DCMs and one PLL)\n2\n0\n0\n4\n102 (due to TQG144 package)"
+    (at 96.52 78.74 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 6cef68dc-0401-49f3-8223-1d1b23bc34a2)
+  )
+  (text "- PROGRAM_B (LOW) Triggers Configuration (Page 4)\n- May configure in main or secondary mode\n- Only SPI, no BPI is available in TQG144 package\n- Multiboot supported (ref. XAPP1296 - https://docs.amd.com/v/u/en-US/xapp1296-multiboot-fallback-icap)"
+    (at 24.13 111.76 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 7829e60b-a876-4a97-982e-c21e6f88869e)
+  )
+)
