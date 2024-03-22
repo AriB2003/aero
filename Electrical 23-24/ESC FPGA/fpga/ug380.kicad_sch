@@ -8,23 +8,53 @@
   )
 
 
+  (text "Page 62\nTo ensure proper power-on behavior, the guidelines in the Spartan-6 FPGA Data Sheet: DC \nand Switching Characteristics must be followed. The power supplies should ramp \nmonotonically within the power supply ramp time range specified. All supply voltages \nshould be within the recommended operating ranges; any dips in VCCINT below VDRINT or \nVCCAUX below VDRAUX can result in loss of configuration data.\nVCCO_2 and sometimes VCCO_1 determine the I/O voltage for the configuration \ninterface (SPI, Serial, BPI, and SelectMAP). VCCAUX determines the I/O voltage for the \nJTAG configuration pins. The voltage provided must be compatible with all configuration \ninterfaces that will be used"
+    (at 182.88 34.29 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 01fbb310-de1c-403e-8c11-7fd7072e8882)
+  )
   (text "Page 20\n- Configuration bank voltage must comply with flash\n- Vccaux level 2.5V default, 3.3V settable\n\nPage 21\n- Mode pins M[1:0] are 01 for Main SPI and XX for JTAG\n- Mode pins have internal pullup!"
-    (at 46.99 67.31 0)
+    (at 25.4 46.99 0)
     (effects (font (size 2.54 2.54)) (justify left bottom))
     (uuid 285202a8-4495-4427-8e66-81a725c1a058)
+  )
+  (text "1. The connection shown in Figure 2-13 uses an example quad SPI flash memory. Other \nSPI devices are supported. For a complete list, see the URL for the ISE software \noverview at the beginning of SPI Configuration Interface, page 40.\n2. Software support for x4 requires the x4 capability enabled in BitGen \n(-g: spi_buswidth:4).\n3. The SPI device needs to be programmed with a specific register setting, which is done \nin iMPACT software, to enable x4 output.\n4. Figure 2-12 is used as a basis for the connections for x4 data width mode. The only \ndifferences are the MISO[2] and MISO[3] connections. These two pins also require \npull-ups to VCCO_2"
+    (at 146.05 165.1 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 429fe17a-a49b-49f6-a5a4-fa3583e19917)
   )
   (text "Page 42\n- QSPI Configuration Schema" (at 46.99 147.32 0)
     (effects (font (size 2.54 2.54)) (justify left bottom))
     (uuid 4450a21c-6b13-49a5-ac2c-d7e0dc226a88)
+  )
+  (text "Pages 72-77\n- DONE: Active high when configuration is complete (drive LED?)\n- PROGRAM_B: Active low, async full chip reset\n- TDI: Data in, internal pull-up\n- TDO: Data out\n- TMS: Mode selector, internal pull-up\n- TCK: Clock (TDI changes on rising, TDO changes on falling)\n- SUSPEND: Must be low during config or tied to ground\n- CMPCS_B: Reserved, unconnected or pull-up\n\n- HSWAPEN configures pull-ups during config\n- Max Config Length: 2.74 Mb"
+    (at 25.4 106.68 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 51b606e4-c97b-44b7-a9c2-abeadfa0c325)
   )
   (text "Page 48\nOne of the following system design approaches can ensure that the SPI flash is ready to \nreceive commands before the FPGA starts its configuration procedure:\n• Control the sequence of the power supplies such that the SPI flash is certain to be \npowered and ready for asynchronous reads before the FPGA begins its configuration \nprocedure.\n• Hold the FPGA PROGRAM_B pin Low from power-up to delay the start of the FPGA \nconfiguration procedure and release the PROGRAM_B pin to High after the SPI flash \nis fully powered and is able to receive commands.\n• Hold the FPGA INIT_B pin Low from power-up to delay the start of the FPGA \nconfiguration procedure and release the INIT_B pin to High after the SPI flash \nbecomes ready to receive commands"
     (at 46.99 177.8 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 708b2fd7-db8a-4a0c-9678-8de13883ca74)
   )
+  (text "Page 83\nThe DONE and PROGRAM_B dedicated inputs operate at the\nVCCO_2 LVCMOS level, and the JTAG input pins (TCK, TMS, and \nTDI) and the SUSPEND pin operate at the VCCAUX LVCMOS level. \nThe DONE pin operates at the VCCO_2 voltage level with the \noutput standard set to LVCMOS 8 mA SLOW."
+    (at 58.42 196.85 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid acb8c022-8a8b-45a8-8e23-f4875d3a91cd)
+  )
+  (text "1. See Table 5-2, page 74 for internal pin terminations and pins affected by HSWAPEN.\n2. DOUT should be connected to the DIN of the downstream FPGA for daisy-chained \nconfiguration modes.\n3. For more details on CCLK termination, see Board Layout for Configuration Clock \n(CCLK), page 56.\n4. A series resistor should be considered for the datapath from the flash to the FPGA to \nminimize overshoot. The proper resistor value can be determined from simulation.\n5. The Spartan-6 FPGA VCCO_2 supply must be the same voltage as VCC of the SPI \ndevice.\n6. CSO_B and MOSI are clocked by the CCLK falling edge.\n7. DIN is clocked on the rising edge of the CCLK.\n8. There are additional pins on the SPI flash side, such as Write Protect and Hold. These \npins are not used in FPGA configuration (read only). But they should be tied off \nappropriately according to the SPI vendor’s specification. \n9. If HSWAPEN is left unconnected or tied High, a pull-up resistor is required for CSO_B.\n10. The CCLK frequency is adjusted by using the BitGen option ConfigRate if the source \nis the internal oscillator. If an external source is used, see External Configuration Clock \nfor Master Modes, page 56 for more details.\n11. The DONE pin is by default an open-drain output with an internal pull-up. An \nadditional external pull-up is recommended in general, but required when using the \nindirect programming method using iMPACT. The DONE pin has a programmable \nactive driver that can be enabled via the BitGen option -g DriveDone.\n12. When the digital clock manager (DCM) or PLL lock wait is enabled before the DONE \nrelease cycle during startup, the FPGA continues to clock in data until the startup wait \ncondition is met and DONE is released. See Required Data Spacing between MultiBoot \nImages, page 138 for considerations specific to MultiBoot Configuration.\n13. Figure 2-12 shows an example SPI flash device. Refer to the ISE software overview at \nhttp://www.xilinx.com/support/documentation/sw_manuals/xilinx14_7/isehelp_start.htm\nand navigate to the iMPACT help documentation (“Introduction to Indirect \nProgramming”) to see which devices are supported for indirect SPI configuration \nusing iMPACT.\n14. VFS is present in 6SLX75/T, 6SLX100/T, and 6SLX150/T devices, and is used for \neFUSE programming. See eFUSE, page 93 for more details.\n15. VBATT is present in 6SLX75/T, 6SLX100/T, and 6SLX150/T devices, and is the power \nsource for AES key storage. If AES encryption is unused, VBATT can be tied to either \nVCCAUX or ground, or left unconnected.\n16. If VCCO_2 is 1.8V, VCCAUX must be 2.5V. If VCCO_2 is 2.5V or 3.3V, VCCAUX can be \neither 2.5V or 3.3V.\n17. The SUSPEND pin should be Low during power up and configuration. If the Suspend \nfeature is not used, the SUSPEND pin must be connected to ground."
+    (at 185.42 142.24 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid ae2ecd32-1008-4814-88c2-f06618d9a3a5)
+  )
   (text "Page 40\nThe iMPACT programming software provides the ability to program an SPI serial flash \nusing an indirect programming method. This downloads a new FPGA design that \nprovides a connection from the iMPACT software through the Spartan-6 device to the SPI \nflash. Previous FPGA memory contents are lost. For a list of supported SPI flash devices in \nthe latest version of software, see Introduction to Indirect Programming - SPI or BPI Flash \nMemory."
     (at 46.99 134.62 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid bbee67bb-09ca-4d6d-aef3-51d107e64e78)
+  )
+  (text "All JTAG pins and the SUSPEND pin are powered by VCCAUX; DONE and PROGRAM_B are powered by VCCO_2 supplies"
+    (at 36.83 181.61 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid c8490d77-fcfd-4f1b-b35c-2df1ad463a09)
   )
 )
