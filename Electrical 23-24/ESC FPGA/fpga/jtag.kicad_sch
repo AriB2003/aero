@@ -1,0 +1,16 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 94798d70-37f5-4dbe-8d10-31819391d450)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (text "Due to the need of a programmer, it was decided that it\nwas better to make one externally than on-board the chip"
+    (at 19.05 26.67 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 90ce96dd-7f84-4637-a2b1-c103c6f33302)
+  )
+)

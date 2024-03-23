@@ -247,7 +247,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "fpga.kicad_pro",
+    "filename": "programmer.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -324,52 +324,12 @@
   },
   "sheets": [
     [
-      "5bf59577-a814-4364-8f7a-37815cfb5474",
+      "aaaf4408-e4eb-45ee-a27d-c2b42f2a1569",
       ""
     ],
     [
-      "ee103eaa-871e-43f4-ab8b-c6c6f640162c",
-      "DS160"
-    ],
-    [
-      "bed8e914-c952-4392-8cc1-6131598d34ad",
-      "FPGA Docs"
-    ],
-    [
-      "bc048676-b226-48c0-8d20-a402abca73a4",
-      "UG631"
-    ],
-    [
-      "519bee66-d9d5-45d0-a2af-bcd947ff2d57",
-      "UG380"
-    ],
-    [
-      "edbd8098-adc9-4a81-8225-56e5824f7b8b",
-      "QSPI"
-    ],
-    [
-      "1f83b38b-56ef-4110-879b-13379f9dd920",
-      "Bank1"
-    ],
-    [
-      "a286b274-4434-47ab-983d-e64806fdcbd6",
-      "Bank2"
-    ],
-    [
-      "5e885406-1c13-459a-ba1f-8e2447b7cb89",
-      "Program"
-    ],
-    [
-      "3e04db34-3f8a-4742-be82-6fa24c009343",
-      "Power"
-    ],
-    [
-      "a7f1449c-b9d7-4bec-9483-b96d0a6d3b19",
-      "Regulators"
-    ],
-    [
-      "3d3d8e49-9c73-4011-93e8-c0355c1f458a",
-      "JTAG"
+      "1155aff1-def4-4854-ae66-7f7d5ef155d7",
+      "prog"
     ]
   ],
   "text_variables": {}

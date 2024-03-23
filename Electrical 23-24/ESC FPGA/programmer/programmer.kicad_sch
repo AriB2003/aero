@@ -1,0 +1,37 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid aaaf4408-e4eb-45ee-a27d-c2b42f2a1569)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (text "Part: FT2232HL-REEL\nDigi: https://www.digikey.com/en/products/detail/ftdi-future-technology-devices-international-ltd/FT2232HL-REEL/1986053\nFamily Overview: https://ftdichip.com/wp-content/uploads/2024/03/DS_FT2232H.pdf\nMPSSE Basics: https://www.ftdichip.com/Support/Documents/AppNotes/AN_135_MPSSE_Basics.pdf\nJTAG Example: https://ftdichip.com/Documents/AppNotes/AN_129_FTDI_Hi_Speed_USB_To_JTAG_Example.pdf\nInterfacing Xilinx with FT2232: https://gist.github.com/rikka0w0/24b58b54473227502fa0334bbe75c3c1?permalink_comment_id=3917897\nClone of Above: https://github.com/vanbwodonk/ft2232hl-jtag-clone?tab=readme-ov-file\nBuilt-In Vivado Option: https://docs.amd.com/r/en-US/ug908-vivado-programming-debugging/Programming-FTDI-Devices-for-Vivado-Hardware-Manager-Support\nUPDI Programmer: https://github.com/SpenceKonde/AVR-Guidance/blob/master/UPDI/jtag2updi.md\nUPDI + UART w/ FTxx32: https://teddywarner.org/Projects/SerialUPDI/#usb-c-updi-design"
+    (at 15.24 55.88 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 3d972693-a305-4ee6-858a-fea84ffc57f0)
+  )
+
+  (sheet (at 57.15 83.82) (size 96.52 69.85) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 1155aff1-def4-4854-ae66-7f7d5ef155d7)
+    (property "Sheetname" "prog" (at 57.15 83.1084 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "JTAG_HW.kicad_sch" (at 57.15 154.2546 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "programmer"
+        (path "/aaaf4408-e4eb-45ee-a27d-c2b42f2a1569" (page "2"))
+      )
+    )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)
