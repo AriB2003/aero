@@ -2108,7 +2108,7 @@
   (symbol (lib_id "Connector:Conn_01x02_Pin") (at 63.5 26.67 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2a7e603b-7f1e-4ef0-a7f4-f125764dda9c)
-    (property "Reference" "STAT" (at 64.77 24.13 0)
+    (property "Reference" "STAT1" (at 64.77 24.13 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "Conn_01x02_Pin" (at 64.77 26.67 0)
@@ -2125,7 +2125,7 @@
     (instances
       (project "2 Axis Gimbal"
         (path "/b10b2b59-31cc-4d60-bc5f-41542c343df0"
-          (reference "STAT") (unit 1)
+          (reference "STAT1") (unit 1)
         )
       )
     )
@@ -2199,7 +2199,7 @@
   (symbol (lib_id "Connector:Conn_01x02_Socket") (at 191.77 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 544b3e37-81fd-46a8-a5c4-dc5456c15d54)
-    (property "Reference" "Power" (at 193.04 49.53 0)
+    (property "Reference" "Power1" (at 193.04 49.53 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Conn_01x02_Socket" (at 193.04 52.07 0)
@@ -2216,7 +2216,7 @@
     (instances
       (project "2 Axis Gimbal"
         (path "/b10b2b59-31cc-4d60-bc5f-41542c343df0"
-          (reference "Power") (unit 1)
+          (reference "Power1") (unit 1)
         )
       )
     )
@@ -2231,7 +2231,7 @@
     (property "Value" "BNO085" (at 160.9441 105.41 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "BNO085" (at 177.8 205.41 0)
+    (property "Footprint" "BNO085:BNO085" (at 177.8 205.41 0)
       (effects (font (size 1.27 1.27)) (justify left top) hide)
     )
     (property "Datasheet" "https://www.ceva-dsp.com/wp-content/uploads/2019/10/BNO080_085-Datasheet.pdf" (at 177.8 305.41 0)
@@ -2430,7 +2430,7 @@
   (symbol (lib_id "Connector:Conn_01x02_Socket") (at 93.98 22.86 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 82e37b96-0007-4669-b893-745a16ac91ac)
-    (property "Reference" "UART" (at 95.25 22.86 0)
+    (property "Reference" "UART1" (at 95.25 22.86 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Conn_01x02_Socket" (at 95.25 25.4 0)
@@ -2447,7 +2447,7 @@
     (instances
       (project "2 Axis Gimbal"
         (path "/b10b2b59-31cc-4d60-bc5f-41542c343df0"
-          (reference "UART") (unit 1)
+          (reference "UART1") (unit 1)
         )
       )
     )
@@ -2533,7 +2533,7 @@
   (symbol (lib_id "formula:C_0.1uF") (at 162.56 95.25 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 9010c8c4-6bef-42a5-b83a-7f2ac5424706)
-    (property "Reference" "D-CUP" (at 162.56 87.63 90)
+    (property "Reference" "D-CUP3" (at 162.56 87.63 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "C_0.1uF" (at 162.56 90.17 90)
@@ -2559,7 +2559,7 @@
     (instances
       (project "2 Axis Gimbal"
         (path "/b10b2b59-31cc-4d60-bc5f-41542c343df0"
-          (reference "D-CUP") (unit 1)
+          (reference "D-CUP3") (unit 1)
         )
       )
     )
@@ -2725,7 +2725,7 @@
     (property "Value" "ABS07-32.768KHZ-7-T" (at 245.11 143.51 0)
       (effects (font (size 1.524 1.524)))
     )
-    (property "Footprint" "XTAL_ABS07-32.768KHZ-7-T_ABR" (at 218.44 143.51 0)
+    (property "Footprint" "32Crys:XTAL_ABS07-32.768KHZ-7-T_ABR" (at 218.44 143.51 0)
       (effects (font (size 1.27 1.27) italic) hide)
     )
     (property "Datasheet" "ABS07-32.768KHZ-7-T" (at 218.44 143.51 0)
@@ -2858,7 +2858,7 @@
   (symbol (lib_id "Connector:Conn_01x02_Socket") (at 102.87 36.83 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c7ef4acb-8de4-4ab6-b009-b318cb894c6c)
-    (property "Reference" "I2C" (at 104.14 36.83 0)
+    (property "Reference" "I2C1" (at 104.14 36.83 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Conn_01x02_Socket" (at 104.14 39.37 0)
@@ -2875,7 +2875,7 @@
     (instances
       (project "2 Axis Gimbal"
         (path "/b10b2b59-31cc-4d60-bc5f-41542c343df0"
-          (reference "I2C") (unit 1)
+          (reference "I2C1") (unit 1)
         )
       )
     )
@@ -2884,7 +2884,7 @@
   (symbol (lib_id "Connector:Conn_01x03_Socket") (at 148.59 34.29 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c8fea596-03df-4a2f-abf4-d061e718e0dc)
-    (property "Reference" "UDPI" (at 149.86 33.02 0)
+    (property "Reference" "UDPI1" (at 149.86 33.02 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Conn_01x03_Socket" (at 149.86 35.56 0)
@@ -2902,7 +2902,7 @@
     (instances
       (project "2 Axis Gimbal"
         (path "/b10b2b59-31cc-4d60-bc5f-41542c343df0"
-          (reference "UDPI") (unit 1)
+          (reference "UDPI1") (unit 1)
         )
       )
     )
@@ -3029,7 +3029,7 @@
     (property "Value" "AP1086DL-13" (at 191.77 64.77 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "TO252-3L_1" (at 205.74 164.77 0)
+    (property "Footprint" "VReg3.3:TO252-3L_1" (at 205.74 164.77 0)
       (effects (font (size 1.27 1.27)) (justify left top) hide)
     )
     (property "Datasheet" "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-DIO/DSADIO2000107.pdf" (at 205.74 264.77 0)
