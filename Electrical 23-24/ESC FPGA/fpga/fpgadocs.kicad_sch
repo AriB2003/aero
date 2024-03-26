@@ -8,6 +8,10 @@
   )
 
 
+  (text "PCB Design" (at 86.36 97.79 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 026ede5a-f019-4ebc-998b-f11f74ba4815)
+  )
   (text "Configuration" (at 54.61 97.79 0)
     (effects (font (size 2.54 2.54)) (justify left bottom))
     (uuid 053d6542-fd01-4f71-bd64-813d3c3884ea)
@@ -20,6 +24,27 @@
   (text "Family\nOverview" (at 26.67 101.6 0)
     (effects (font (size 2.54 2.54)) (justify left bottom))
     (uuid 6ef14d45-8289-4c9f-b0e9-f99d37c14f77)
+  )
+  (text "Power Mngmt" (at 118.11 97.79 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 911bef16-248a-4440-84ba-8f36d6d77e56)
+  )
+
+  (sheet (at 83.82 81.28) (size 31.75 33.02)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 03ceb2f7-a7a3-41bb-8726-b87cd76c47cc)
+    (property "Sheetname" "UG393" (at 85.09 85.09 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "ug393.kicad_sch" (at 85.09 111.76 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "fpga"
+        (path "/5bf59577-a814-4364-8f7a-37815cfb5474/bed8e914-c952-4392-8cc1-6131598d34ad" (page "13"))
+      )
+    )
   )
 
   (sheet (at 52.07 81.28) (size 31.75 33.02)
@@ -35,6 +60,23 @@
     (instances
       (project "fpga"
         (path "/5bf59577-a814-4364-8f7a-37815cfb5474/bed8e914-c952-4392-8cc1-6131598d34ad" (page "5"))
+      )
+    )
+  )
+
+  (sheet (at 115.57 81.28) (size 31.75 33.02)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid adb1849a-5774-4044-9349-4d04957f52e3)
+    (property "Sheetname" "UG394" (at 116.84 85.09 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "ug394.kicad_sch" (at 116.84 111.76 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "fpga"
+        (path "/5bf59577-a814-4364-8f7a-37815cfb5474/bed8e914-c952-4392-8cc1-6131598d34ad" (page "14"))
       )
     )
   )

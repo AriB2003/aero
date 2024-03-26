@@ -1,0 +1,39 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid da175717-ef9e-4ca0-b696-acd848731689)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (text "No capacitor substitutions can be made with High-Freq caps like 4u7 and u47"
+    (at 54.61 43.18 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 089c339f-e2f8-44c5-bc27-67be9b7653b4)
+  )
+  (text "0\n3\n1\n\n0\n7\n1\n\n0\n1\n2\n\n0\n1\n2\n\n0\n1\n2\n\n0\n1\n2" (at 71.12 154.94 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 21c8ea7e-a1a8-4788-970b-5e5c9d7094f5)
+  )
+  (text "| 1210 | Cer, X7R, X5R | 5.0nH | 10mO-60mO | 6.3V\n| 0805 | Cer, X7R, X5R | 2.0nH | 10mO-60mO | 6.3V\n| 0402 | Cer, X7R, X5R | 1.5nH | 10mO-60mO | 6.3V\n\n- Values can be larger\n- Body Size can be smaller\n- ESL Maximum\n- ESR must be in range\n- Voltage Rating can be larger\n\n"
+    (at 125.73 114.3 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 68c8c78b-9e12-4cfb-b16a-159fe9a3f437)
+  )
+  (text "VCCINT\n\n\n\nVCCAUX\n\n\n\nVCCO_0\n\n\n\nVCCO_1\n\n\n\nVCCO_2\n\n\n\nVCCO_3"
+    (at 68.58 151.13 0)
+    (effects (font (size 2.54 2.54)) (justify right bottom))
+    (uuid a293b6c7-facd-46c3-bb3c-ea139936e348)
+  )
+  (text "100u\n4u7\nu47\n\n100u\n4u7\nu47\n\n100u\n4u7\nu47\n\n100u\n4u7\nu47\n\n100u\n4u7\nu47\n\n100u\n4u7\nu47"
+    (at 74.93 154.94 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid cc3d053a-9e6a-4a31-bc80-955582d0d247)
+  )
+  (text "100u\n4u7\nu47" (at 124.46 86.36 0)
+    (effects (font (size 2.54 2.54)) (justify right bottom))
+    (uuid d74020a3-d51a-482b-8015-69d35375ed28)
+  )
+)

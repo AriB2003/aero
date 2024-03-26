@@ -6,7 +6,7 @@
     (property "Value" "SBH11-PBPC-D07-ST-BK" (at -7.62 -12.7 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
-    (property "Footprint" "SBH11-PBPC-D07-ST-BK:SULLINS_SBH11-PBPC-D07-ST-BK" (at 0 0 0)
+    (property "Footprint" "programmer:SULLINS_SBH11-PBPC-D07-ST-BK" (at 0 0 0)
       (effects (font (size 1.27 1.27)) (justify bottom) hide)
     )
     (property "Datasheet" "" (at 0 0 0)

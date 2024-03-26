@@ -940,6 +940,11 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 10bbb4b5-3384-4798-846f-cc7ffe4a623d)
   )
+  (text "does fpga power vref or not?\nseems like both external power and internal..."
+    (at 166.37 67.31 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 9da79665-a82a-4adc-a274-8c5e6e0edc48)
+  )
   (text "3.3V DONE\n1.7V VF\n8mA" (at 40.64 157.48 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid bc7bfc0e-f41e-46ff-895d-55c767dfd347)
