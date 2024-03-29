@@ -1,0 +1,20 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid da175717-ef9e-4ca0-b696-acd848731689)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (text "Lots of VCCAUX stuff (Page 29)\n- Seems like it powers JTAG interface\n- Must be set by user to 3.3V otherwise at 2.5V default\n- Sometimes banks draw from VCCAUX (dwai cuz all banks at 3.3V)\n\nVCCO:\n- Yeah, all VCCO and AUX can be tied to 3V3\n- Can't find any use for lower voltages...\n\n-Can boot in any power order, but 3.3v may wanna be first for Flash\n\nRegs:\n-Choose appropriate given power draw"
+    (at 76.2 90.17 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 4cd31e42-b4e2-4277-94dc-e95e5e7f51cb)
+  )
+  (text "should i have banks at lower voltages?" (at 63.5 29.21 0)
+    (effects (font (size 5.08 5.08)) (justify left bottom))
+    (uuid 62abe573-d3cd-44a4-97af-9940472452c3)
+  )
+)
