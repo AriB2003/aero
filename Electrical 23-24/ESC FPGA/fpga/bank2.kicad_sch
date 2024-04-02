@@ -925,6 +925,11 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 1f1ea7d1-a7d6-4f94-b56c-f4c14fbc8fa3)
   )
+  (text "4 pmod\n8 switches (dip switch)\ngpio (raspi header or arduino shield)\nrgb led\n1 led per button\nlevel shifter?\nHDMI"
+    (at 214.63 105.41 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 8c70d3fd-a500-4937-9936-9b0b4c3c3393)
+  )
   (text "why is this resistor" (at 67.31 67.31 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid a7f9a41e-a7f1-4028-87ab-c2cace914edd)
