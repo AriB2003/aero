@@ -251,6 +251,12 @@
   (junction (at 99.06 82.55) (diameter 0) (color 0 0 0 0)
     (uuid bb71369d-15f5-4cbf-80dc-2e74804efe28)
   )
+  (junction (at 138.43 48.26) (diameter 0) (color 0 0 0 0)
+    (uuid ce047af4-e36d-45bc-9217-bc8c87619c1e)
+  )
+  (junction (at 114.3 53.34) (diameter 0) (color 0 0 0 0)
+    (uuid dfb2d9ed-77ea-4423-8b8c-10697010e06d)
+  )
 
   (wire (pts (xy 99.06 82.55) (xy 138.43 82.55))
     (stroke (width 0) (type default))
@@ -291,6 +297,14 @@
   (wire (pts (xy 138.43 49.53) (xy 138.43 48.26))
     (stroke (width 0) (type default))
     (uuid 62ac6fa9-cecc-448b-872d-1fb16296cefc)
+  )
+  (wire (pts (xy 114.3 48.26) (xy 114.3 53.34))
+    (stroke (width 0) (type default))
+    (uuid 6494693b-2015-4ea0-8f27-7712854d8d33)
+  )
+  (wire (pts (xy 138.43 48.26) (xy 114.3 48.26))
+    (stroke (width 0) (type default))
+    (uuid 6f871aa9-b9b6-44c4-a9b8-66815b4f084c)
   )
   (wire (pts (xy 138.43 82.55) (xy 138.43 78.74))
     (stroke (width 0) (type default))
@@ -354,9 +368,9 @@
     (property "Sim.Pins" "1=C 2=B 3=E" (at 116.84 60.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "3" (uuid 1fc1ef1f-2ca9-4941-9d5b-5fad8ca55f86))
-    (pin "2" (uuid 7ae61d8e-608e-45a7-af36-335aab46758c))
     (pin "1" (uuid 7f51ba5b-7f56-451a-88a9-d9c5a06e98d7))
+    (pin "2" (uuid 7ae61d8e-608e-45a7-af36-335aab46758c))
+    (pin "3" (uuid 1fc1ef1f-2ca9-4941-9d5b-5fad8ca55f86))
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630/924de76e-1f75-46a4-a5b8-caddcc783c64"
@@ -381,8 +395,8 @@
     (property "Datasheet" "~" (at 138.43 53.34 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "2" (uuid 40121ee3-4234-4cd2-aee3-e7b3915ad12f))
     (pin "1" (uuid 67c5890f-8f29-4b50-8bc7-de47d4063810))
+    (pin "2" (uuid 40121ee3-4234-4cd2-aee3-e7b3915ad12f))
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630/924de76e-1f75-46a4-a5b8-caddcc783c64"
@@ -416,9 +430,9 @@
     (property "Sim.Pins" "1=C 2=B 3=E" (at 99.06 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "3" (uuid 5ead1c8f-f917-484e-a696-99ce04f25a78))
-    (pin "2" (uuid 208821ee-469f-44f3-91a3-1edb5d7a1eed))
     (pin "1" (uuid 2d42478e-fbad-4bbd-8de5-b418b4c7b374))
+    (pin "2" (uuid 208821ee-469f-44f3-91a3-1edb5d7a1eed))
+    (pin "3" (uuid 5ead1c8f-f917-484e-a696-99ce04f25a78))
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630/924de76e-1f75-46a4-a5b8-caddcc783c64"
@@ -443,8 +457,8 @@
     (property "Datasheet" "~" (at 99.06 73.66 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "2" (uuid 8e1a707d-bcb5-4d09-ab13-f469b6f1f8fe))
     (pin "1" (uuid e6b95dc5-6313-4c0d-a13b-11a6bfe5207f))
+    (pin "2" (uuid 8e1a707d-bcb5-4d09-ab13-f469b6f1f8fe))
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630/924de76e-1f75-46a4-a5b8-caddcc783c64"
@@ -469,8 +483,8 @@
     (property "Datasheet" "~" (at 129.54 60.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "2" (uuid 80fe8826-055e-4ac8-bb65-35602a07ea36))
     (pin "1" (uuid a30503a2-a18e-40e3-8622-d42686df937d))
+    (pin "2" (uuid 80fe8826-055e-4ac8-bb65-35602a07ea36))
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630/924de76e-1f75-46a4-a5b8-caddcc783c64"
@@ -486,13 +500,16 @@
     (property "Reference" "D201" (at 140.97 73.66 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "4.5V " (at 140.97 76.2 90)
+    (property "Value" "5.1V" (at 140.97 76.2 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Aero_PDB:SODFL1608X70N" (at 138.43 74.93 0)
+    (property "Footprint" "Aero_PDB:SOD1608X70" (at 138.43 74.93 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 138.43 74.93 0)
+    (property "Datasheet" "https://www.onsemi.com/pdf/datasheet/mm5z2v4t1-d.pdf" (at 138.43 74.93 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Digi" "https://www.digikey.com/en/products/detail/onsemi/MM5Z5V1T1G/921103" (at 138.43 74.93 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 82eb30d2-2d87-4759-8390-d52af131ef44))
