@@ -1078,14 +1078,14 @@
         )
       )
     )
-    (symbol "Connector:USB_OTG" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
-      (property "Reference" "J104" (at 0 12.7 0)
-        (effects (font (size 1.27 1.27)))
+    (symbol "Connector:USB_A" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+      (property "Reference" "J" (at -5.08 11.43 0)
+        (effects (font (size 1.27 1.27)) (justify left))
       )
-      (property "Value" "USB_OTG" (at 0 10.16 0)
-        (effects (font (size 1.27 1.27)))
+      (property "Value" "USB_A" (at -5.08 8.89 0)
+        (effects (font (size 1.27 1.27)) (justify left))
       )
-      (property "Footprint" "Aero_PDB:MOLEX_47346-0001" (at 3.81 -1.27 0)
+      (property "Footprint" "" (at 3.81 -1.27 0)
         (effects (font (size 1.27 1.27)) hide)
       )
       (property "Datasheet" " ~" (at 3.81 -1.27 0)
@@ -1094,13 +1094,13 @@
       (property "ki_keywords" "connector USB" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "ki_description" "USB mini/micro connector" (at 0 0 0)
+      (property "ki_description" "USB Type A connector" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
       (property "ki_fp_filters" "USB*" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (symbol "USB_OTG_0_1"
+      (symbol "USB_A_0_1"
         (rectangle (start -5.08 -7.62) (end 5.08 7.62)
           (stroke (width 0.254) (type default))
           (fill (type background))
@@ -1109,20 +1109,20 @@
           (stroke (width 0.254) (type default))
           (fill (type outline))
         )
+        (rectangle (start -1.524 4.826) (end -4.318 5.334)
+          (stroke (width 0) (type default))
+          (fill (type outline))
+        )
+        (rectangle (start -1.27 4.572) (end -4.572 5.842)
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
         (circle (center -0.635 3.429) (radius 0.381)
           (stroke (width 0.254) (type default))
           (fill (type outline))
         )
         (rectangle (start -0.127 -7.62) (end 0.127 -6.858)
           (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy -1.905 2.159)
-            (xy 0.635 2.159)
-          )
-          (stroke (width 0.254) (type default))
           (fill (type none))
         )
         (polyline
@@ -1155,39 +1155,9 @@
           (stroke (width 0.254) (type default))
           (fill (type outline))
         )
-        (polyline
-          (pts
-            (xy -4.318 5.588)
-            (xy -1.778 5.588)
-            (xy -2.032 4.826)
-            (xy -4.064 4.826)
-            (xy -4.318 5.588)
-          )
-          (stroke (width 0) (type default))
-          (fill (type outline))
-        )
-        (polyline
-          (pts
-            (xy -4.699 5.842)
-            (xy -4.699 5.588)
-            (xy -4.445 4.826)
-            (xy -4.445 4.572)
-            (xy -1.651 4.572)
-            (xy -1.651 4.826)
-            (xy -1.397 5.588)
-            (xy -1.397 5.842)
-            (xy -4.699 5.842)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
         (rectangle (start 0.254 1.27) (end -0.508 0.508)
           (stroke (width 0.254) (type default))
           (fill (type outline))
-        )
-        (rectangle (start 5.08 -5.207) (end 4.318 -4.953)
-          (stroke (width 0) (type default))
-          (fill (type none))
         )
         (rectangle (start 5.08 -2.667) (end 4.318 -2.413)
           (stroke (width 0) (type default))
@@ -1202,8 +1172,16 @@
           (fill (type none))
         )
       )
-      (symbol "USB_OTG_1_1"
-        (pin passive line (at 7.62 5.08 180) (length 2.54)
+      (symbol "USB_A_1_1"
+        (polyline
+          (pts
+            (xy -1.905 2.159)
+            (xy 0.635 2.159)
+          )
+          (stroke (width 0.254) (type default))
+          (fill (type none))
+        )
+        (pin power_in line (at 7.62 5.08 180) (length 2.54)
           (name "VBUS" (effects (font (size 1.27 1.27))))
           (number "1" (effects (font (size 1.27 1.27))))
         )
@@ -1215,12 +1193,12 @@
           (name "D+" (effects (font (size 1.27 1.27))))
           (number "3" (effects (font (size 1.27 1.27))))
         )
-        (pin passive line (at 7.62 -5.08 180) (length 2.54)
-          (name "ID" (effects (font (size 1.27 1.27))))
+        (pin power_in line (at 0 -10.16 90) (length 2.54)
+          (name "GND" (effects (font (size 1.27 1.27))))
           (number "4" (effects (font (size 1.27 1.27))))
         )
-        (pin passive line (at 0 -10.16 90) (length 2.54)
-          (name "GND" (effects (font (size 1.27 1.27))))
+        (pin passive line (at -2.54 -10.16 90) (length 2.54)
+          (name "Shield" (effects (font (size 1.27 1.27))))
           (number "5" (effects (font (size 1.27 1.27))))
         )
       )
@@ -1373,11 +1351,11 @@
   )
 
   (no_connect (at 123.19 123.19) (uuid 46b474d7-a0b7-4c7b-be12-d98bfd8ec852))
+  (no_connect (at 133.35 130.81) (uuid 56684fcd-facb-45a3-a1fc-5fb5ae9797bd))
   (no_connect (at 207.01 144.78) (uuid 682ed5e4-8f3d-44ea-802f-1102f51d4aaf))
   (no_connect (at 233.68 144.78) (uuid 6a7dd9f9-904a-4e85-8140-f45b714cbf5a))
   (no_connect (at 111.76 83.82) (uuid 9f489bbb-cad3-4fa5-b8ac-576ee8862c9b))
   (no_connect (at 123.19 120.65) (uuid b863aa68-8715-49c5-a9c1-5bf679ea656b))
-  (no_connect (at 123.19 125.73) (uuid d08e7f40-c2f8-4948-a167-76a3e068c113))
 
   (wire (pts (xy 53.34 132.08) (xy 50.8 132.08))
     (stroke (width 0) (type default))
@@ -2335,7 +2313,7 @@
   (symbol (lib_id "Connector:Conn_01x03_Socket") (at 212.09 144.78 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3060e055-4e38-4e05-aa5c-aac10b2f2e4a)
-    (property "Reference" "J3" (at 205.74 135.89 0)
+    (property "Reference" "J107" (at 205.74 135.89 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "RCIN" (at 199.39 138.43 0)
@@ -2353,7 +2331,7 @@
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630"
-          (reference "J3") (unit 1)
+          (reference "J107") (unit 1)
         )
       )
     )
@@ -2412,7 +2390,7 @@
   (symbol (lib_id "Connector:Conn_01x04_Pin") (at 217.17 90.17 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 366ec290-86a8-4f11-9941-598bc52e159d)
-    (property "Reference" "J106" (at 210.82 80.01 0)
+    (property "Reference" "J109" (at 210.82 80.01 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "JST_XH_4" (at 210.82 82.55 0)
@@ -2431,7 +2409,36 @@
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630"
-          (reference "J106") (unit 1)
+          (reference "J109") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Connector:USB_A") (at 130.81 120.65 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 38ae3014-ac61-4063-875d-170c3d0c9b95)
+    (property "Reference" "J113" (at 128.27 107.95 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Value" "USB_A" (at 128.27 110.49 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Footprint" "Aero_PDB:GCT_USB1130-15-A_REVA" (at 127 121.92 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" " ~" (at 127 121.92 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid e335118b-14fe-47ae-82f9-a9243c5a3701))
+    (pin "2" (uuid efeff250-6393-4e9c-bbba-80a3de862894))
+    (pin "4" (uuid 3d1b7f46-227b-4181-b43e-89c2832ac908))
+    (pin "5" (uuid 456f118a-0a5c-47a8-90ee-ba1ef15a4686))
+    (pin "3" (uuid 68f03bcf-807c-438c-996b-ba63790292d0))
+    (instances
+      (project "Aero_PDB"
+        (path "/ec3864f8-beea-4bd9-8117-4ec49632e630"
+          (reference "J113") (unit 1)
         )
       )
     )
@@ -2490,7 +2497,7 @@
   (symbol (lib_id "power:GND") (at 233.68 147.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 42bdb581-ad25-46a9-a251-33c54da0a11f)
-    (property "Reference" "#PWR02" (at 233.68 153.67 0)
+    (property "Reference" "#PWR0122" (at 233.68 153.67 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND_LV" (at 233.68 152.4 0)
@@ -2506,7 +2513,7 @@
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630"
-          (reference "#PWR02") (unit 1)
+          (reference "#PWR0122") (unit 1)
         )
       )
     )
@@ -2652,7 +2659,7 @@
   (symbol (lib_id "power:GND") (at 109.22 88.9 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4d4f0306-85b5-493c-8e74-cc68551a1786)
-    (property "Reference" "#PWR03" (at 109.22 95.25 0)
+    (property "Reference" "#PWR0116" (at 109.22 95.25 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND_LV" (at 109.22 93.98 0)
@@ -2668,7 +2675,7 @@
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630"
-          (reference "#PWR03") (unit 1)
+          (reference "#PWR0116") (unit 1)
         )
       )
     )
@@ -2727,35 +2734,6 @@
     )
   )
 
-  (symbol (lib_id "Connector:USB_OTG") (at 130.81 120.65 0) (mirror y) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid 5e6fb491-ade7-4905-8b50-565e43bfe0d5)
-    (property "Reference" "J104" (at 130.81 107.95 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "USB_OTG" (at 130.81 110.49 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Aero_PDB:MOLEX_47346-0001" (at 127 121.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" " ~" (at 127 121.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 85ab6aa0-cf1e-4721-a77a-3e45f1380c49))
-    (pin "2" (uuid 752b8de3-9d64-41b5-849d-5ab130b5e544))
-    (pin "3" (uuid 16ad64f8-5843-4a98-a38c-8ce6f39a3545))
-    (pin "4" (uuid d48ed799-c40a-42a8-aa6b-90462512f876))
-    (pin "5" (uuid c4b18f83-8fb2-48fe-bb1c-83b96cb9a2b6))
-    (instances
-      (project "Aero_PDB"
-        (path "/ec3864f8-beea-4bd9-8117-4ec49632e630"
-          (reference "J104") (unit 1)
-        )
-      )
-    )
-  )
-
   (symbol (lib_id "power:GND") (at 53.34 162.56 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 5efcd85b-665a-423e-8517-2f45b896b241)
@@ -2784,7 +2762,7 @@
   (symbol (lib_id "Connector:Conn_01x03_Socket") (at 238.76 144.78 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 66143c09-2aef-467d-8e19-d5ff95399f55)
-    (property "Reference" "J4" (at 232.41 135.89 0)
+    (property "Reference" "J110" (at 232.41 135.89 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "RCIN" (at 226.06 138.43 0)
@@ -2802,7 +2780,7 @@
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630"
-          (reference "J4") (unit 1)
+          (reference "J110") (unit 1)
         )
       )
     )
@@ -2915,7 +2893,7 @@
   (symbol (lib_id "Aero_PDB_parts:DCJ200-10-A-XX-K_REVA") (at 158.75 124.46 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a693ceac-2af6-4e89-b576-fba3335d9ce8)
-    (property "Reference" "J107" (at 161.9858 115.57 0)
+    (property "Reference" "J106" (at 161.9858 115.57 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "DCJ200-10-A-XX-K_REVA" (at 161.9858 118.11 0)
@@ -2972,7 +2950,7 @@
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630"
-          (reference "J107") (unit 1)
+          (reference "J106") (unit 1)
         )
       )
     )
@@ -3105,7 +3083,7 @@
   (symbol (lib_id "Connector:Conn_01x04_Pin") (at 245.11 90.17 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b4672e41-8ab5-4ac2-9b69-aaad24e5e45c)
-    (property "Reference" "J2" (at 238.76 80.01 0)
+    (property "Reference" "J112" (at 238.76 80.01 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "Conn_01x04_Pin" (at 238.76 82.55 0)
@@ -3124,7 +3102,7 @@
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630"
-          (reference "J2") (unit 1)
+          (reference "J112") (unit 1)
         )
       )
     )
@@ -3213,7 +3191,7 @@
   (symbol (lib_id "Connector:Conn_01x04_Pin") (at 243.84 113.03 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c6df4199-0b78-4162-a602-5a759c9249fd)
-    (property "Reference" "J1" (at 237.49 102.87 0)
+    (property "Reference" "J111" (at 237.49 102.87 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "Conn_01x04_Pin" (at 236.22 105.41 0)
@@ -3232,7 +3210,7 @@
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630"
-          (reference "J1") (unit 1)
+          (reference "J111") (unit 1)
         )
       )
     )
@@ -3241,7 +3219,7 @@
   (symbol (lib_name "GND_3") (lib_id "power:GND") (at 227.33 38.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e30c5227-c6f9-467e-946f-ddfeb69a3deb)
-    (property "Reference" "#PWR0120" (at 227.33 44.45 0)
+    (property "Reference" "#PWR0121" (at 227.33 44.45 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND_LV" (at 233.68 39.37 0)
@@ -3257,7 +3235,7 @@
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630"
-          (reference "#PWR0120") (unit 1)
+          (reference "#PWR0121") (unit 1)
         )
       )
     )
@@ -3266,7 +3244,7 @@
   (symbol (lib_id "power:GND") (at 207.01 147.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid eb6e775f-9c0e-4804-99ed-055fca9a7524)
-    (property "Reference" "#PWR01" (at 207.01 153.67 0)
+    (property "Reference" "#PWR0120" (at 207.01 153.67 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND_LV" (at 207.01 152.4 0)
@@ -3282,7 +3260,7 @@
     (instances
       (project "Aero_PDB"
         (path "/ec3864f8-beea-4bd9-8117-4ec49632e630"
-          (reference "#PWR01") (unit 1)
+          (reference "#PWR0120") (unit 1)
         )
       )
     )
