@@ -1,11 +1,11 @@
-G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,7.0.8*
-G04 #@! TF.CreationDate,2024-04-19T19:44:49-04:00*
+G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,7.0.10*
+G04 #@! TF.CreationDate,2024-04-26T20:14:14-04:00*
 G04 #@! TF.ProjectId,Aero_PDB,4165726f-5f50-4444-922e-6b696361645f,rev?*
 G04 #@! TF.SameCoordinates,Original*
 G04 #@! TF.FileFunction,Profile,NP*
 %FSLAX46Y46*%
 G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW 7.0.8) date 2024-04-19 19:44:49*
+G04 Created by KiCad (PCBNEW 7.0.10) date 2024-04-26 20:14:14*
 %MOMM*%
 %LPD*%
 G01*
