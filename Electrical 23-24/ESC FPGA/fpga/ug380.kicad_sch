@@ -37,6 +37,10 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 708b2fd7-db8a-4a0c-9678-8de13883ca74)
   )
+  (text "oscillator goes on gclk0_userclk" (at 139.7 111.76 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 8926ec0a-9619-4377-a0f6-4f71c6f731d6)
+  )
   (text "Page 83\nThe DONE and PROGRAM_B dedicated inputs operate at the\nVCCO_2 LVCMOS level, and the JTAG input pins (TCK, TMS, and \nTDI) and the SUSPEND pin operate at the VCCAUX LVCMOS level. \nThe DONE pin operates at the VCCO_2 voltage level with the \noutput standard set to LVCMOS 8 mA SLOW."
     (at 58.42 196.85 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
