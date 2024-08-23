@@ -3436,8 +3436,8 @@
     (property "Datasheet" "~" (at 49.53 73.66 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 34593b06-4fd7-4aa0-9351-72c7690fab23))
-    (pin "2" (uuid 1f11f6f4-fb2f-44d3-a20a-3cabb141245b))
+    (pin "1" (uuid 4bab02a2-af4b-47e1-bfca-fa0f306f3021))
+    (pin "2" (uuid 12a36660-ea5c-478a-8dc4-66e78e3dcd43))
     (instances
       (project "fpga"
         (path "/5bf59577-a814-4364-8f7a-37815cfb5474/a286b274-4434-47ab-983d-e64806fdcbd6"
@@ -3924,8 +3924,8 @@
     (property "Datasheet" "~" (at 72.39 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid f84923a5-c188-4b8f-9265-3ab0e10ea23b))
-    (pin "2" (uuid 07f5f795-acaa-439e-a591-942c9b604beb))
+    (pin "1" (uuid 9e0a8976-6d20-4bc1-8ab5-7d17ba3399e3))
+    (pin "2" (uuid 889a325f-059a-4350-8169-264e4de6a02d))
     (instances
       (project "fpga"
         (path "/5bf59577-a814-4364-8f7a-37815cfb5474/a286b274-4434-47ab-983d-e64806fdcbd6"

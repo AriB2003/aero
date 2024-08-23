@@ -713,6 +713,11 @@
   (no_connect (at 36.83 35.56) (uuid 674c8e93-0178-4d88-be8c-408e322aa597))
   (no_connect (at 36.83 33.02) (uuid b4d1f337-f3d7-44f7-b6c2-665bc441ff75))
 
+  (text "DUAL PMOD SPEC" (at 35.56 105.41 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid fee82a4b-84a5-4bbe-a863-dac797018d28)
+  )
+
   (global_label "PMOD2_1" (shape input) (at 64.77 115.57 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 0070c464-1008-44fe-819c-24eedc85850f)
