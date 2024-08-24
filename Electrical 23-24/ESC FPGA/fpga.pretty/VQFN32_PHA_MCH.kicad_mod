@@ -414,5 +414,5 @@
   (pad "30" smd rect (at -0.974999 -2.9464) (size 0.3048 0.7112) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 21116bc4-3a5e-4c99-8e46-5a5b77e06380))
   (pad "31" smd rect (at -1.625001 -2.9464) (size 0.3048 0.7112) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp cce26793-369f-40ab-9781-c7c02cad6f44))
   (pad "32" smd rect (at -2.274999 -2.9464) (size 0.3048 0.7112) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp ba218841-862d-47f2-a1e1-db6947db1cd1))
-  (pad "33" smd rect (at 0 -1.2425) (size 4.8006 2.3114) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 3b657890-df03-410d-bc96-62e9c09e21ef))
+  (pad "33" smd rect (at 0 -1.2425) (size 4.7 2.2114) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 3b657890-df03-410d-bc96-62e9c09e21ef))
 )
