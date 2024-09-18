@@ -7987,7 +7987,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "\nIC DRVR 7 SEGMENT 48TSSOP\n"
+		(property "Description" "IC DRVR 7 SEGMENT 48TSSOP"
 			(at 199.39 93.98 0)
 			(effects
 				(font
