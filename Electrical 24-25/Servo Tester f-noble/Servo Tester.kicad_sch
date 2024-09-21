@@ -3446,6 +3446,16 @@
 	)
 	(wire
 		(pts
+			(xy 34.29 152.4) (xy 71.12 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "068ea285-edd6-416b-9585-3a78f7938e49")
+	)
+	(wire
+		(pts
 			(xy 133.35 101.6) (xy 133.35 106.68)
 		)
 		(stroke
@@ -3453,6 +3463,16 @@
 			(type default)
 		)
 		(uuid "0737eafe-cfe7-475a-8f6e-26e8840ebfec")
+	)
+	(wire
+		(pts
+			(xy 34.29 149.86) (xy 71.12 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "09298540-5967-43fa-a07e-45cc5e7e83e8")
 	)
 	(wire
 		(pts
@@ -3466,6 +3486,16 @@
 	)
 	(wire
 		(pts
+			(xy 34.29 142.24) (xy 71.12 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4c5a150a-e9c8-4b5c-bc89-7b6595e88910")
+	)
+	(wire
+		(pts
 			(xy 107.95 88.9) (xy 133.35 88.9)
 		)
 		(stroke
@@ -3473,6 +3503,16 @@
 			(type default)
 		)
 		(uuid "4e9468cf-ad80-4579-a30d-69f9786bd72d")
+	)
+	(wire
+		(pts
+			(xy 34.29 165.1) (xy 71.12 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d7a7983-ab02-4b45-bd87-621366c6deb4")
 	)
 	(wire
 		(pts
@@ -3486,6 +3526,16 @@
 	)
 	(wire
 		(pts
+			(xy 34.29 137.16) (xy 71.12 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "82de6f52-913e-4ec5-ba8a-f7bebdb50157")
+	)
+	(wire
+		(pts
 			(xy 133.35 148.59) (xy 138.43 148.59)
 		)
 		(stroke
@@ -3493,6 +3543,56 @@
 			(type default)
 		)
 		(uuid "91b6fa28-f690-43ad-8d9d-66654adac0b7")
+	)
+	(wire
+		(pts
+			(xy 34.29 170.18) (xy 71.12 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9fb06eec-de51-409d-882a-200b40835f03")
+	)
+	(wire
+		(pts
+			(xy 34.29 132.08) (xy 71.12 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a342c1ae-6a6d-46d1-a004-d44a8ccf40c9")
+	)
+	(wire
+		(pts
+			(xy 34.29 162.56) (xy 71.12 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ae25318c-2efc-407e-9590-c0f5ab742b62")
+	)
+	(wire
+		(pts
+			(xy 34.29 157.48) (xy 71.12 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc2685f4-c4ec-4c3f-b915-d142d37b0f4b")
+	)
+	(wire
+		(pts
+			(xy 34.29 139.7) (xy 71.12 139.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd97b03f-72be-4dbf-95fb-2afce46ed584")
 	)
 	(wire
 		(pts
@@ -3516,6 +3616,16 @@
 	)
 	(wire
 		(pts
+			(xy 34.29 160.02) (xy 71.12 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6b043ca-4382-4868-85d5-556253940251")
+	)
+	(wire
+		(pts
 			(xy 133.35 148.59) (xy 133.35 154.94)
 		)
 		(stroke
@@ -3526,6 +3636,46 @@
 	)
 	(wire
 		(pts
+			(xy 34.29 167.64) (xy 71.12 167.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e17584be-0a3e-494f-99b9-86a2b342842e")
+	)
+	(wire
+		(pts
+			(xy 34.29 154.94) (xy 71.12 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea2c6259-2a2f-4b64-b491-bb5be9b2c7f5")
+	)
+	(wire
+		(pts
+			(xy 34.29 134.62) (xy 71.12 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fa326589-090e-44aa-8c3c-10e93507dde1")
+	)
+	(wire
+		(pts
+			(xy 34.29 144.78) (xy 71.12 144.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "faef6394-359f-4207-a0ac-a0a20f122243")
+	)
+	(wire
+		(pts
 			(xy 119.38 69.85) (xy 119.38 81.28)
 		)
 		(stroke
@@ -3533,6 +3683,27 @@
 			(type default)
 		)
 		(uuid "fc5bc57d-afa5-41eb-ba9b-314917aadd43")
+	)
+	(wire
+		(pts
+			(xy 34.29 147.32) (xy 71.12 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe2bc030-a1c7-4243-a607-2d87776bf1bf")
+	)
+	(label "com0"
+		(at 34.29 129.54 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3fb39771-671b-4fb8-9e89-2b75fb8abb7c")
 	)
 	(label "-VBATT"
 		(at 138.43 148.59 0)
@@ -3555,6 +3726,17 @@
 			(justify left bottom)
 		)
 		(uuid "739deaf9-e193-41c2-8ff5-9185f4ec9362")
+	)
+	(label "com0"
+		(at 71.12 76.2 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a8b33f51-5f71-4527-9904-f9b3c60beb13")
 	)
 	(label "-VBATT"
 		(at 107.95 88.9 0)
@@ -3755,7 +3937,8 @@
 	)
 	(symbol
 		(lib_id "servo_tester_onboarding:VIM-878-DP")
-		(at 49.53 119.38 0)
+		(at 29.21 127 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3763,7 +3946,7 @@
 		(dnp no)
 		(uuid "9f7bdc0f-28cd-4273-946b-aabf57076a9b")
 		(property "Reference" "U4"
-			(at 50.165 71.12 0)
+			(at 29.845 175.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3771,7 +3954,7 @@
 			)
 		)
 		(property "Value" "VIM-878-DP-FC-S-LV"
-			(at 50.165 73.66 0)
+			(at 29.845 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3779,7 +3962,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 49.53 119.38 0)
+			(at 29.21 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3788,7 +3971,7 @@
 			)
 		)
 		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/693/VIM-878.pdf"
-			(at 49.53 120.015 0)
+			(at 29.21 126.365 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3797,7 +3980,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 49.53 119.38 0)
+			(at 29.21 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3806,7 +3989,7 @@
 			)
 		)
 		(property "Digi" "https://www.digikey.com/en/products/detail/varitronix/VIM-878-DP-FC-S-LV/1118603"
-			(at 51.435 122.555 0)
+			(at 31.115 123.825 0)
 			(effects
 				(font
 					(size 1.27 1.27)
