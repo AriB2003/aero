@@ -5,6 +5,7 @@
 	(uuid "10923042-8564-4dce-bf51-e3d6b2353604")
 	(paper "A4")
 	(lib_symbols
+<<<<<<< Updated upstream
 		(symbol "Connector:Conn_01x03_Pin"
 			(pin_names
 				(offset 1.016) hide)
@@ -746,6 +747,8 @@
 				)
 			)
 		)
+=======
+>>>>>>> Stashed changes
 		(symbol "servo_tester_onboarding:AP2205-33Y-13"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -4179,6 +4182,7 @@
 			)
 		)
 	)
+<<<<<<< Updated upstream
 	(junction
 		(at 88.9 46.99)
 		(diameter 0)
@@ -5660,6 +5664,11 @@
 	(symbol
 		(lib_id "servo_tester_onboarding:AP2205-33Y-13")
 		(at 96.52 21.59 0)
+=======
+	(symbol
+		(lib_id "servo_tester_onboarding:AP2205-33Y-13")
+		(at 179.07 82.55 0)
+>>>>>>> Stashed changes
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5668,7 +5677,11 @@
 		(fields_autoplaced yes)
 		(uuid "09bd1475-c919-47f1-aba3-879a934e1866")
 		(property "Reference" "U2"
+<<<<<<< Updated upstream
 			(at 96.52 15.24 0)
+=======
+			(at 179.07 76.2 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5676,7 +5689,11 @@
 			)
 		)
 		(property "Value" "AP2205-33Y-13"
+<<<<<<< Updated upstream
 			(at 96.52 17.78 0)
+=======
+			(at 179.07 78.74 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5684,7 +5701,11 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-89-3_Handsoldering"
+<<<<<<< Updated upstream
 			(at 96.52 21.59 0)
+=======
+			(at 179.07 82.55 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5693,7 +5714,11 @@
 			)
 		)
 		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP2205.pdf"
+<<<<<<< Updated upstream
 			(at 96.52 21.59 0)
+=======
+			(at 179.07 82.55 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5702,7 +5727,11 @@
 			)
 		)
 		(property "Description" ""
+<<<<<<< Updated upstream
 			(at 96.52 21.59 0)
+=======
+			(at 179.07 82.55 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5711,7 +5740,11 @@
 			)
 		)
 		(property "Digi" "https://www.digikey.com/en/products/detail/diodes-incorporated/AP2205-33Y-13/10107162"
+<<<<<<< Updated upstream
 			(at 96.52 21.59 0)
+=======
+			(at 179.07 82.55 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5738,14 +5771,20 @@
 		)
 	)
 	(symbol
+<<<<<<< Updated upstream
 		(lib_id "Connector:Conn_01x05_Pin")
 		(at 62.23 105.41 0)
+=======
+		(lib_id "servo_tester_onboarding:ATtiny404-SS")
+		(at 50.8 76.2 0)
+>>>>>>> Stashed changes
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
+<<<<<<< Updated upstream
 		(uuid "12fcd43b-cc59-4e3d-a3ea-e8e8ffc48001")
 		(property "Reference" "J5"
 			(at 62.865 95.25 0)
@@ -5826,6 +5865,11 @@
 		(uuid "1848329a-072f-476b-abad-ac2a8dad9ce7")
 		(property "Reference" "U3"
 			(at 58.7659 34.29 0)
+=======
+		(uuid "1848329a-072f-476b-abad-ac2a8dad9ce7")
+		(property "Reference" "U3"
+			(at 52.9941 55.88 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5834,7 +5878,11 @@
 			)
 		)
 		(property "Value" "ATtiny404-SS"
+<<<<<<< Updated upstream
 			(at 58.7659 36.83 0)
+=======
+			(at 52.9941 58.42 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5843,7 +5891,11 @@
 			)
 		)
 		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
+<<<<<<< Updated upstream
 			(at 60.96 54.61 0)
+=======
+			(at 50.8 76.2 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5853,7 +5905,11 @@
 			)
 		)
 		(property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/50002687A.pdf"
+<<<<<<< Updated upstream
 			(at 60.96 54.61 0)
+=======
+			(at 50.8 76.2 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5862,7 +5918,11 @@
 			)
 		)
 		(property "Description" ""
+<<<<<<< Updated upstream
 			(at 60.96 54.61 0)
+=======
+			(at 50.8 76.2 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5922,6 +5982,7 @@
 		)
 	)
 	(symbol
+<<<<<<< Updated upstream
 		(lib_id "Connector:Conn_01x03_Pin")
 		(at 21.59 106.68 0)
 		(unit 1)
@@ -5995,14 +6056,25 @@
 		(lib_id "servo_tester_onboarding:RotaryEncoder_Switch")
 		(at 27.94 49.53 0)
 		(mirror y)
+=======
+		(lib_id "servo_tester_onboarding:RotaryEncoder_Switch")
+		(at 72.39 139.7 0)
+>>>>>>> Stashed changes
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+<<<<<<< Updated upstream
 		(uuid "51b5038f-d80f-4c9e-a981-225e5c0e2288")
 		(property "Reference" "SW1"
 			(at 27.94 39.37 0)
+=======
+		(fields_autoplaced yes)
+		(uuid "51b5038f-d80f-4c9e-a981-225e5c0e2288")
+		(property "Reference" "SW1"
+			(at 72.39 129.54 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6010,7 +6082,11 @@
 			)
 		)
 		(property "Value" "RotaryEncoder_Switch"
+<<<<<<< Updated upstream
 			(at 27.94 41.91 0)
+=======
+			(at 72.39 132.08 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6018,7 +6094,11 @@
 			)
 		)
 		(property "Footprint" "Rotary_Encoder:RotaryEncoder_Bourns_Vertical_PEC12R-3xxxF-Sxxxx"
+<<<<<<< Updated upstream
 			(at 31.75 45.466 0)
+=======
+			(at 68.58 135.636 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6027,7 +6107,11 @@
 			)
 		)
 		(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/PEC12R.pdf"
+<<<<<<< Updated upstream
 			(at 27.94 42.926 0)
+=======
+			(at 72.39 133.096 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6036,7 +6120,11 @@
 			)
 		)
 		(property "Description" ""
+<<<<<<< Updated upstream
 			(at 27.94 49.53 0)
+=======
+			(at 72.39 139.7 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6045,7 +6133,11 @@
 			)
 		)
 		(property "Digi" "https://www.digikey.com/en/products/detail/bourns-inc/PEC12R-4217F-S0012/4699281"
+<<<<<<< Updated upstream
 			(at 27.94 49.53 0)
+=======
+			(at 72.39 139.7 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6078,6 +6170,7 @@
 		)
 	)
 	(symbol
+<<<<<<< Updated upstream
 		(lib_id "Connector:Conn_01x03_Pin")
 		(at 21.59 81.28 0)
 		(unit 1)
@@ -6151,6 +6244,10 @@
 	(symbol
 		(lib_id "servo_tester_onboarding:PCF8551ATT_AJ")
 		(at 118.11 90.17 0)
+=======
+		(lib_id "servo_tester_onboarding:PCF8551ATT_AJ")
+		(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6159,7 +6256,11 @@
 		(fields_autoplaced yes)
 		(uuid "5b7a6ebc-a5ff-40f5-b09c-4d9bf92992c3")
 		(property "Reference" "U1"
+<<<<<<< Updated upstream
 			(at 118.11 21.59 0)
+=======
+			(at 139.7 33.02 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6167,7 +6268,11 @@
 			)
 		)
 		(property "Value" "PCF8551ATT_AJ"
+<<<<<<< Updated upstream
 			(at 118.11 24.13 0)
+=======
+			(at 139.7 35.56 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6175,7 +6280,11 @@
 			)
 		)
 		(property "Footprint" "servo_tester:SOP50P810X120-48N"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6185,7 +6294,11 @@
 			)
 		)
 		(property "Datasheet" "https://www.nxp.com/docs/en/data-sheet/PCF8551.pdf"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6194,7 +6307,11 @@
 			)
 		)
 		(property "Description" "IC DRVR 7 SEGMENT 48TSSOP"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6204,7 +6321,11 @@
 			)
 		)
 		(property "MF" "NXP USA"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6214,7 +6335,11 @@
 			)
 		)
 		(property "Package" "TSSOP-48 NXP Semiconductors"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6224,7 +6349,11 @@
 			)
 		)
 		(property "Price" "None"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6234,7 +6363,11 @@
 			)
 		)
 		(property "Check_prices" "https://www.snapeda.com/parts/PCF8551ATT/AJ/NXP+USA+Inc./view-part/?ref=eda"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6244,7 +6377,11 @@
 			)
 		)
 		(property "STANDARD" "IPC 7351B"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6254,7 +6391,11 @@
 			)
 		)
 		(property "PARTREV" "2"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6264,7 +6405,11 @@
 			)
 		)
 		(property "SnapEDA_Link" "https://www.snapeda.com/parts/PCF8551ATT/AJ/NXP+USA+Inc./view-part/?ref=snap"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6274,7 +6419,11 @@
 			)
 		)
 		(property "MP" "PCF8551ATT/AJ"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6284,7 +6433,11 @@
 			)
 		)
 		(property "Availability" "In Stock"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6294,7 +6447,11 @@
 			)
 		)
 		(property "MANUFACTURER" "NXP"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6304,7 +6461,11 @@
 			)
 		)
 		(property "Digi" "https://www.digikey.com/en/products/detail/nxp-usa-inc/PCF8551ATT-AY/15221921"
+<<<<<<< Updated upstream
 			(at 118.11 90.17 0)
+=======
+			(at 139.7 101.6 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6466,6 +6627,7 @@
 		)
 	)
 	(symbol
+<<<<<<< Updated upstream
 		(lib_id "Device:R")
 		(at 88.9 39.37 0)
 		(unit 1)
@@ -6750,6 +6912,10 @@
 	(symbol
 		(lib_id "servo_tester_onboarding:VIM-878-DP")
 		(at 193.04 87.63 180)
+=======
+		(lib_id "servo_tester_onboarding:VIM-878-DP")
+		(at 236.22 91.44 180)
+>>>>>>> Stashed changes
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6757,7 +6923,11 @@
 		(dnp no)
 		(uuid "bc8599c9-8c24-41a0-80f2-d43fa8fd6cc5")
 		(property "Reference" "U4"
+<<<<<<< Updated upstream
 			(at 199.898 71.882 0)
+=======
+			(at 243.078 75.692 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6766,7 +6936,11 @@
 			)
 		)
 		(property "Value" "VIM-878-DP-FC-S-LV"
+<<<<<<< Updated upstream
 			(at 199.898 74.422 0)
+=======
+			(at 243.078 78.232 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6775,7 +6949,11 @@
 			)
 		)
 		(property "Footprint" ""
+<<<<<<< Updated upstream
 			(at 193.04 87.63 0)
+=======
+			(at 236.22 91.44 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6784,7 +6962,11 @@
 			)
 		)
 		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/693/VIM-878.pdf"
+<<<<<<< Updated upstream
 			(at 193.04 86.995 0)
+=======
+			(at 236.22 90.805 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6793,7 +6975,11 @@
 			)
 		)
 		(property "Description" ""
+<<<<<<< Updated upstream
 			(at 193.04 87.63 0)
+=======
+			(at 236.22 91.44 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6802,7 +6988,11 @@
 			)
 		)
 		(property "Digi" "https://www.digikey.com/en/products/detail/varitronix/VIM-878-DP-FC-S-LV/1118603"
+<<<<<<< Updated upstream
 			(at 191.135 84.455 0)
+=======
+			(at 234.315 88.265 0)
+>>>>>>> Stashed changes
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6927,6 +7117,7 @@
 			)
 		)
 	)
+<<<<<<< Updated upstream
 	(symbol
 		(lib_id "Device:C")
 		(at 147.32 35.56 0)
@@ -6995,6 +7186,8 @@
 			)
 		)
 	)
+=======
+>>>>>>> Stashed changes
 	(sheet_instances
 		(path "/"
 			(page "1")
