@@ -1,0 +1,58 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+    background-color: #222;
+    color: #fff;
+    padding: 15px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.header h3 {
+    margin: 5px 0 5px 0;
+    font-weight: normal;
+    font-size: 1.2em;
+    color: #ccc;
+}
+
+.telemetry-dashboard {
+    display: flex;
+    height: calc(100vh - 50px); /* Adjust height to account for header */
+    width: 100vw;
+}
+
+.gauges {
+    width: 15%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+.gauge {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#map {
+    width: 85%;
+    height: 100%;
+}
+
+/* CSS for the custom drone dot marker */
+.drone-dot {
+    background-color: red;   /* Color of the dot */
+    border-radius: 50%;      /* Make it circular */
+    width: 20px;             /* Diameter of the dot */
+    height: 20px;            /* Diameter of the dot */
+    border: 2px solid white; /* Optional: white border for better visibility */
+}

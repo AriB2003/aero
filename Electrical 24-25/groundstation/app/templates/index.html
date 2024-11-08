@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ground Station Display</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- Header Section for Title and Subtitle -->
+    <header class="header">
+        <h1>Ground Station</h2>
+        <h3>Built by BCoop and Lilteeps</h4>
+    </header>
+
+    <div class="telemetry-dashboard">
+        <div class="gauges">
+            <div class="gauge" id="altitude">
+                <h3>Altitude (MSL)</h3>
+                <p id="altitude-value">0 ft</p>
+            </div>
+            <div class="gauge" id="speed">
+                <h3>Ground Speed </h3>
+                <p id="speed-value">0 KN/s</p>
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/telemetry.js') }}"></script>
+</body>
+</html>

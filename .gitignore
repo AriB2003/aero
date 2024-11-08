@@ -40,3 +40,7 @@ sym-lib-table
 
 # config
 *.kicad_prl
+
+# logan's venv
+venv
+__pycache__
