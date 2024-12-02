@@ -1,0 +1,34 @@
+[0.385s] Invoking command in '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/src/my_package': PYTHONPATH=/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/my_package build --build-base /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build install --record /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/install.log --single-version-externally-managed install_data
+[0.482s] /home/zaraius/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py:261: UserWarning: Unknown distribution option: 'tests_require'
+[0.482s]   warnings.warn(msg)
+[0.532s] running egg_info
+[0.540s] creating ../../build/my_package/my_package.egg-info
+[0.540s] writing ../../build/my_package/my_package.egg-info/PKG-INFO
+[0.541s] writing dependency_links to ../../build/my_package/my_package.egg-info/dependency_links.txt
+[0.541s] writing entry points to ../../build/my_package/my_package.egg-info/entry_points.txt
+[0.541s] writing requirements to ../../build/my_package/my_package.egg-info/requires.txt
+[0.541s] writing top-level names to ../../build/my_package/my_package.egg-info/top_level.txt
+[0.541s] writing manifest file '../../build/my_package/my_package.egg-info/SOURCES.txt'
+[0.558s] reading manifest file '../../build/my_package/my_package.egg-info/SOURCES.txt'
+[0.558s] writing manifest file '../../build/my_package/my_package.egg-info/SOURCES.txt'
+[0.559s] running build
+[0.559s] running build_py
+[0.559s] creating /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build/lib/my_package
+[0.559s] copying my_package/gimbal_control_node.py -> /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build/lib/my_package
+[0.559s] copying my_package/drop_decision_node.py -> /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build/lib/my_package
+[0.559s] copying my_package/my_node.py -> /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build/lib/my_package
+[0.559s] copying my_package/object_detection_node.py -> /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build/lib/my_package
+[0.559s] copying my_package/deblurring_node.py -> /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build/lib/my_package
+[0.559s] copying my_package/__init__.py -> /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build/lib/my_package
+[0.559s] running install
+[0.561s] running install_lib
+[0.573s] running install_data
+[0.573s] copying resource/my_package -> /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/share/ament_index/resource_index/packages
+[0.573s] copying package.xml -> /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/share/my_package
+[0.573s] running install_egg_info
+[0.582s] removing '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/python3.10/site-packages/my_package-0.0.0-py3.10.egg-info' (and everything under it)
+[0.582s] Copying ../../build/my_package/my_package.egg-info to /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/python3.10/site-packages/my_package-0.0.0-py3.10.egg-info
+[0.582s] running install_scripts
+[0.652s] Installing my_node script to /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/my_package
+[0.653s] writing list of installed files to '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/install.log'
+[0.667s] Invoked command in '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/src/my_package' returned '0': PYTHONPATH=/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/my_package build --build-base /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build install --record /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/install.log --single-version-externally-managed install_data

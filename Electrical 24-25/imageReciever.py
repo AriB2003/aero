@@ -3,7 +3,6 @@ import socket
 def run_client():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_ip = "192.168.172.218"  # Raspberry Pi server IP
-    #server_ip = "192.168.172.218"  # Raspberry Pi server IP
     server_port = 2712
     client.connect((server_ip, server_port))
 
