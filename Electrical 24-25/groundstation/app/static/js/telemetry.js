@@ -1,5 +1,10 @@
 // Initialize the map with the satellite background
-let map = L.map('map').setView([38.313653, -76.557245], 13);
+let map = L.map('map', {
+    zoomDelta: 0.25,      // Makes zoom levels change in smaller increments (default is 1)
+    zoomSnap: 0.25,       // Snap to these smaller increments
+    wheelPxPerZoomLevel: 120,  // More pixels of wheel movement needed per zoom level
+    wheelDebounceTime: 40  // Smooths out wheel zooming
+}).setView([38.313653, -76.557245], 13);
 
 // Add a satellite tile layer (ESRI Satellite layer) to the map
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -63,34 +68,15 @@ L.polygon([outerBounds, polygonCoordinates], {
     weight: 1              // Border weight
 }).addTo(map);
 
-// Create a green dot style for grid points
-const greenDotStyle = {
-    color: 'green',
-    radius: 1,
-    fillColor: 'green',
-    fillOpacity: 1
-};
-
-// Function to load and plot grid points
-fetch('/static/grid_points.json')
+// Load and display path
+fetch('path.geojson')
     .then(response => response.json())
-    .then(gridPoints => {
-        gridPoints.forEach(coord => {
-            // Plot each coordinate as a green dot on the map
-            L.circleMarker(coord, greenDotStyle).addTo(map);
-        });
+    .then(data => {
+        L.geoJSON(data, {
+            style: {
+                color: 'blue',
+                weight: 3
+            }
+        }).addTo(map);
     })
-    .catch(error => console.error('Error loading grid points:', error));
-
-    // Load and display the shortest path
-fetch('static/shortest_path.json')
-.then(response => response.json())
-.then(pathCoordinates => {
-    // Create a polyline for the shortest path with a blue color
-    L.polyline(pathCoordinates, {
-        color: 'blue',
-        weight: 3,
-        opacity: 0.7,
-    }).addTo(map);
-})
-.catch(error => console.error('Error loading shortest path:', error));
+    .catch(error => console.error('Error loading GeoJSON:', error));
