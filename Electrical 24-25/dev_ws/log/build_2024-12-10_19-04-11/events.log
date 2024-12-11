@@ -1,0 +1,45 @@
+[0.000000] (-) TimerEvent: {}
+[0.001491] (my_package) JobQueued: {'identifier': 'my_package', 'dependencies': OrderedDict()}
+[0.001560] (my_package) JobStarted: {'identifier': 'my_package'}
+[0.099632] (-) TimerEvent: {}
+[0.200050] (-) TimerEvent: {}
+[0.300472] (-) TimerEvent: {}
+[0.395407] (my_package) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build', '--no-deps', 'symlink_data'], 'cwd': '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zaraius', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/zaraius', 'OLDPWD': '/home/zaraius/Documents/test/aero/Electrical 24-25', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '9605', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'zaraius', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'zaraius', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '1', 'PATH': '/opt/ros/humble/bin:/home/zaraius/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/zaraius-Precision-3591:@/tmp/.ICE-unix/3020,unix/zaraius-Precision-3591:/tmp/.ICE-unix/3020', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/c702e9e0_895d_406f_8a90_e670978e8c3d', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.WYGCY2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.186', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '27', 'AMENT_PREFIX_PATH': '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package:/opt/ros/humble', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/python3.10/site-packages:/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[0.400570] (-) TimerEvent: {}
+[0.491222] (my_package) StderrLine: {'line': b"/home/zaraius/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py:261: UserWarning: Unknown distribution option: 'tests_require'\n"}
+[0.491578] (my_package) StderrLine: {'line': b'  warnings.warn(msg)\n'}
+[0.500663] (-) TimerEvent: {}
+[0.580459] (my_package) StdoutLine: {'line': b'running develop\n'}
+[0.580867] (my_package) StderrLine: {'line': b'/home/zaraius/.local/lib/python3.10/site-packages/setuptools/command/develop.py:41: EasyInstallDeprecationWarning: easy_install command is deprecated.\n'}
+[0.580999] (my_package) StderrLine: {'line': b'!!\n'}
+[0.581094] (my_package) StderrLine: {'line': b'\n'}
+[0.581174] (my_package) StderrLine: {'line': b'        ********************************************************************************\n'}
+[0.581255] (my_package) StderrLine: {'line': b'        Please avoid running ``setup.py`` and ``easy_install``.\n'}
+[0.581332] (my_package) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[0.581408] (my_package) StderrLine: {'line': b'        standards-based tools.\n'}
+[0.581484] (my_package) StderrLine: {'line': b'\n'}
+[0.581559] (my_package) StderrLine: {'line': b'        See https://github.com/pypa/setuptools/issues/917 for details.\n'}
+[0.581640] (my_package) StderrLine: {'line': b'        ********************************************************************************\n'}
+[0.581724] (my_package) StderrLine: {'line': b'\n'}
+[0.581806] (my_package) StderrLine: {'line': b'!!\n'}
+[0.581888] (my_package) StderrLine: {'line': b'  easy_install.initialize_options(self)\n'}
+[0.600783] (-) TimerEvent: {}
+[0.699177] (my_package) StdoutLine: {'line': b'running egg_info\n'}
+[0.700885] (-) TimerEvent: {}
+[0.707337] (my_package) StdoutLine: {'line': b'writing my_package.egg-info/PKG-INFO\n'}
+[0.707718] (my_package) StdoutLine: {'line': b'writing dependency_links to my_package.egg-info/dependency_links.txt\n'}
+[0.707887] (my_package) StdoutLine: {'line': b'writing entry points to my_package.egg-info/entry_points.txt\n'}
+[0.707992] (my_package) StdoutLine: {'line': b'writing requirements to my_package.egg-info/requires.txt\n'}
+[0.708085] (my_package) StdoutLine: {'line': b'writing top-level names to my_package.egg-info/top_level.txt\n'}
+[0.724562] (my_package) StdoutLine: {'line': b"reading manifest file 'my_package.egg-info/SOURCES.txt'\n"}
+[0.725197] (my_package) StdoutLine: {'line': b"writing manifest file 'my_package.egg-info/SOURCES.txt'\n"}
+[0.734158] (my_package) StdoutLine: {'line': b'running build_ext\n'}
+[0.734320] (my_package) StdoutLine: {'line': b'Creating /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/python3.10/site-packages/my-package.egg-link (link to .)\n'}
+[0.734704] (my_package) StdoutLine: {'line': b'Installing my_node script to /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/my_package\n'}
+[0.734882] (my_package) StdoutLine: {'line': b'\n'}
+[0.734991] (my_package) StdoutLine: {'line': b'Installed /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package\n'}
+[0.735085] (my_package) StdoutLine: {'line': b'running symlink_data\n'}
+[0.735355] (my_package) StderrLine: {'line': b"error: can't copy '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/launch/my_launch.launch.py': doesn't exist or not a regular file\n"}
+[0.752483] (my_package) CommandEnded: {'returncode': 1}
+[0.753145] (my_package) JobEnded: {'identifier': 'my_package', 'rc': 1}
+[0.762887] (-) EventReactorShutdown: {}

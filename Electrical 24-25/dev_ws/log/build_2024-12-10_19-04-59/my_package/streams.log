@@ -1,0 +1,33 @@
+[0.383s] Invoking command in '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package': PYTHONPATH=/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build --no-deps symlink_data --force
+[0.565s] running develop
+[0.565s] /home/zaraius/.local/lib/python3.10/site-packages/setuptools/command/develop.py:41: EasyInstallDeprecationWarning: easy_install command is deprecated.
+[0.565s] !!
+[0.565s] 
+[0.565s]         ********************************************************************************
+[0.566s]         Please avoid running ``setup.py`` and ``easy_install``.
+[0.566s]         Instead, use pypa/build, pypa/installer or other
+[0.566s]         standards-based tools.
+[0.566s] 
+[0.566s]         See https://github.com/pypa/setuptools/issues/917 for details.
+[0.566s]         ********************************************************************************
+[0.566s] 
+[0.566s] !!
+[0.566s]   easy_install.initialize_options(self)
+[0.681s] running egg_info
+[0.689s] writing my_package.egg-info/PKG-INFO
+[0.689s] writing dependency_links to my_package.egg-info/dependency_links.txt
+[0.689s] writing entry points to my_package.egg-info/entry_points.txt
+[0.690s] writing requirements to my_package.egg-info/requires.txt
+[0.690s] writing top-level names to my_package.egg-info/top_level.txt
+[0.706s] reading manifest file 'my_package.egg-info/SOURCES.txt'
+[0.707s] writing manifest file 'my_package.egg-info/SOURCES.txt'
+[0.716s] running build_ext
+[0.716s] Creating /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/python3.10/site-packages/my-package.egg-link (link to .)
+[0.717s] Installing my_node script to /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/my_package
+[0.717s] 
+[0.717s] Installed /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package
+[0.717s] running symlink_data
+[0.718s] symbolically linking /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/resource/my_package -> /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/share/ament_index/resource_index/packages
+[0.718s] symbolically linking /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/package.xml -> /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/share/my_package
+[0.718s] error: can't copy '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/launch/my_launch.launch.py': doesn't exist or not a regular file
+[0.735s] Invoked command in '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package' returned '1': PYTHONPATH=/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build --no-deps symlink_data --force

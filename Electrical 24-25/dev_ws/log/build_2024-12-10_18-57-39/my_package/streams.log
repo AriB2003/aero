@@ -1,0 +1,30 @@
+[0.437s] Invoking command in '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package': PYTHONPATH=/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build --no-deps symlink_data
+[0.628s] running develop
+[0.628s] /home/zaraius/.local/lib/python3.10/site-packages/setuptools/command/develop.py:41: EasyInstallDeprecationWarning: easy_install command is deprecated.
+[0.628s] !!
+[0.628s] 
+[0.628s]         ********************************************************************************
+[0.628s]         Please avoid running ``setup.py`` and ``easy_install``.
+[0.628s]         Instead, use pypa/build, pypa/installer or other
+[0.628s]         standards-based tools.
+[0.628s] 
+[0.628s]         See https://github.com/pypa/setuptools/issues/917 for details.
+[0.628s]         ********************************************************************************
+[0.628s] 
+[0.628s] !!
+[0.628s]   easy_install.initialize_options(self)
+[0.752s] running egg_info
+[0.761s] writing my_package.egg-info/PKG-INFO
+[0.761s] writing dependency_links to my_package.egg-info/dependency_links.txt
+[0.761s] writing entry points to my_package.egg-info/entry_points.txt
+[0.761s] writing requirements to my_package.egg-info/requires.txt
+[0.761s] writing top-level names to my_package.egg-info/top_level.txt
+[0.778s] reading manifest file 'my_package.egg-info/SOURCES.txt'
+[0.779s] writing manifest file 'my_package.egg-info/SOURCES.txt'
+[0.788s] running build_ext
+[0.788s] Creating /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/python3.10/site-packages/my-package.egg-link (link to .)
+[0.789s] Installing my_node script to /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/my_package
+[0.789s] 
+[0.789s] Installed /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package
+[0.789s] running symlink_data
+[0.807s] Invoked command in '/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package' returned '0': PYTHONPATH=/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/install/my_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/zaraius/Documents/test/aero/Electrical 24-25/dev_ws/build/my_package/build --no-deps symlink_data

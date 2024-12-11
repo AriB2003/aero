@@ -8,12 +8,13 @@ class MyNode(Node):
         self.publisher_ = self.create_publisher(String, 'aero_topic', 10)
         timer_period = 2.0  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
-
+        self.i = 0
     def timer_callback(self):
         msg = String()
-        msg.data = 'Hello from my ROS2 node!'
+        msg.data = 'Hi ari can you count with me?: %d' % self.i
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
+        self.i += 1
 
 def main(args=None):
     rclpy.init(args=args)
