@@ -18,7 +18,7 @@ boundary_polygon = Polygon(boundary_coords)
 
 # Define the point
 current_point = Point(38.3163, -76.555238)
-track_vector = np.array(.2,.2)
+#track_vector = np.array(.2,.2)
 
 def calculate_net_boundary_vector(point, polygon):
     """
@@ -29,9 +29,9 @@ def calculate_net_boundary_vector(point, polygon):
     
     for i in range(len(boundary_coords) - 1):  # Iterate through edges
         edge = LineString([boundary_coords[i], boundary_coords[i + 1]])
-        edge_vector = np.array([boundary_coords[i + 1][1]-boundary_coords[i][1],boundary_coords[i + 1][2]-boundary_coords[i][2]])  #this is where I'm adding the angle component to the rejection vector. 
-        distance_edge = np.hypot(boundary_coords[i + 1][1]-boundary_coords[i][1], boundary_coords[i + 1][2]-boundary_coords[i][2]) 
-        normalized_edge = 
+        #edge_vector = np.array([boundary_coords[i + 1][1]-boundary_coords[i][1],boundary_coords[i + 1][2]-boundary_coords[i][2]])  #this is where I'm adding the angle component to the rejection vector. 
+        #distance_edge = np.hypot(boundary_coords[i + 1][1]-boundary_coords[i][1], boundary_coords[i + 1][2]-boundary_coords[i][2]) 
+       # normalized_edge = 
         
 
         # Find nearest point on the edge
@@ -46,8 +46,8 @@ def calculate_net_boundary_vector(point, polygon):
         # Distance
         distance = np.hypot(dx, dy)
         if distance > 0:
-                        magnitude = max(5 - distance, 0)  # Example scaling based on distance
-            vector *= magnitude  # Scale the vector
+            magnitude = max(5 - distance, 0)  # Example scaling based on distance
+            vector= 1/magnitude  #Scale the vector
             
             # Add to the net vector
             net_vector += vector
