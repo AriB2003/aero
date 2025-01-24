@@ -4,8 +4,7 @@ import matplotlib.pyplot as plt
 
 # Original coordinates (latitude, longitude)
 flipped_coords = [
-    (38.317297, -76.556176), (38.315948, -76.556573), (38.315467, -76.553762),
-    (38.314709, -76.549363), (38.314241, -76.546627), (38.313698, -76.543423),
+    (38.317297, -76.556176), (38.315948, -76.556573), 
     (38.313310, -76.541096), (38.315299, -76.540521), (38.315876, -76.543613),
     (38.318616, -76.545385), (38.318626, -76.552061), (38.317034, -76.552447),
     (38.316742, -76.552945)
@@ -17,10 +16,10 @@ boundary_coords = [(lon, lat) for lat, lon in flipped_coords]
 boundary_polygon = Polygon(boundary_coords)
 
 # Define the point
-current_point = Point(38.3163, -76.555238)
+current_point = Point(-76.545238, 38.3173)
 track_vector = np.array([0.2, 0.2])
 
-def calculate_net_boundary_vector(point, polygon):
+def calculate_net_boundary_vector(point, vector, polygon):
     """
     Calculate a net vector away from multiple boundary edges of a polygon.
     """
@@ -32,25 +31,29 @@ def calculate_net_boundary_vector(point, polygon):
 
         # this is where I'm adding the angle component to the rejection vector.
         edge_vector   = np.array([boundary_coords[i + 1][0]-boundary_coords[i][1], boundary_coords[i + 1][1]-boundary_coords[i][1]])   
-        distance_edge = np.hypot(boundary_coords[i + 1][0]-boundary_coords[i][1], boundary_coords[i + 1][1]-boundary_coords[i][1]) 
-        
-        # normalized_edge = 
-        
+        magnitude = np.linalg.norm(edge_vector) 
+        #print(edge_vector)
+        #print(magnitude)
+        normalized_edge = edge_vector/magnitude
+        #print(normalized_edge)
 
         # Find nearest point on the edge
         nearest_point = edge.interpolate(edge.project(point))
         
         # Compute vector from nearest point to the current point
-        dx = point.x - nearest_point.x
-        dy = point.y - nearest_point.y
-        
+        dx = np.array(point.x - nearest_point.x)
+        dy = np.array(point.y - nearest_point.y)
+        #print(type(dy))
         # Compute cross product 
+        vector=np.array([nearest_point.x-point.x,nearest_point.y-point.y])
 
         # Distance
         distance = np.hypot(dx, dy)
+        print(type(vector))
+        #print(distance)
         if distance > 0:
-            magnitude = max(5 - distance, 0)  # Example scaling based on distance
-            vector= 1/magnitude  #Scale the vector
+              # Example scaling based on distance
+            vector= 1/-vector  #Scale the vector
             
             # Add to the net vector
             net_vector += vector
@@ -58,7 +61,7 @@ def calculate_net_boundary_vector(point, polygon):
     return net_vector
 
 # Compute the net vector
-net_vector = calculate_net_boundary_vector(current_point, boundary_polygon)
+net_vector = calculate_net_boundary_vector(current_point, track_vector, boundary_polygon)
 
 # Output results
 print(f"Point: {current_point}")
@@ -80,14 +83,12 @@ boundary_coords = list(boundary_polygon.exterior.coords)
 for i in range(len(boundary_coords) - 1):
     edge = LineString([boundary_coords[i], boundary_coords[i + 1]])
     nearest_point = edge.interpolate(edge.project(current_point))
-    vector = calculate_net_boundary_vector(current_point, boundary_polygon)
+    vector = calculate_net_boundary_vector(current_point, track_vector, boundary_polygon)
     plt.plot(nearest_point.x, nearest_point.y, 'go')  # Nearest point
-    plt.arrow(nearest_point.x, nearest_point.y, vector[0], vector[1],
-              head_width=0.0001, head_length=0.0002, fc='green', ec='green')
+    plt.arrow(nearest_point.x, nearest_point.y, vector[0], vector[1], head_width=0.0000001, head_length=0.0000001, fc='green', ec='green')
 
 # Draw the net vector
-plt.arrow(current_point.x, current_point.y, net_vector[0], net_vector[1],
-          head_width=0.0002, head_length=0.0003, fc='red', ec='red', label="Net Vector")
+plt.arrow(current_point.x, current_point.y, net_vector[0], net_vector[1], head_width=0.0000001, head_length=0.0000001, fc='red', ec='red', label="Net Vector")
 
 plt.axis([min(x) - 0.001, max(x) + 0.001, min(y) - 0.001, max(y) + 0.001])
 plt.xlabel("Longitude")
