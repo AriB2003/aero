@@ -28,26 +28,41 @@ def calculate_net_boundary_vector(point, vector, polygon):
     Calculate a net vector away from multiple boundary edges of a polygon.
     """
     boundary_coords = list(polygon.exterior.coords)
-    net_vector = np.array([0.0, 0.0])
-    
+    net_vector = np.array([0.0, 0.0])   
+
+    distance = [0] * (len(boundary_coords) - 1)
+
+    #find 3 closest points
     for i in range(len(boundary_coords) - 1):  # Iterate through edges
         edge = LineString([boundary_coords[i], boundary_coords[i + 1]])
+        nearest_point = edge.interpolate(edge.project(point))
+
+        dx = np.array(point.x - nearest_point.x)
+        dy = np.array(point.y - nearest_point.y)
+        distance[i] = np.hypot(dx, dy)
+    
+    indices = sorted(range(len(distance)), key=lambda k: distance[k])[:3]
+    
+
+    for i in indices:  # Iterate through edges - I think this is the current problem: not looping back to first coordinate at end of list of coordinates
+        edge = LineString([boundary_coords[i], boundary_coords[(i + 1) % len(boundary_coords)]])
 
         # this is where I'm adding the angle component to the rejection vector.
         edge_vector = np.array([boundary_coords[i + 1][0]-boundary_coords[i][1], boundary_coords[i + 1][1]-boundary_coords[i][1]])   
         length_edge = np.linalg.norm(edge_vector) 
         length_vector = np.linalg.norm(vector)
 
+        #normalize vectors and calculate theta (angle between vectors)
         normalized_vector = vector/length_vector
         normalized_edge = edge_vector/length_edge
         theta = (np.dot(normalized_edge, normalized_vector))
 
-        # Find nearest point on the edge
+        # Find vector from nearest point to current point
         nearest_point = edge.interpolate(edge.project(point))
         nearest_point_vector = np.array([nearest_point.x, nearest_point.y])
         point_vector = np.array([point.x, point.y])
 
-        # Compute vector from nearest point to the current point
+        # Compute distance from nearest point to the current point - this might be unnecessary!
         dx = np.array(point.x - nearest_point.x)
         dy = np.array(point.y - nearest_point.y)
         
@@ -57,7 +72,7 @@ def calculate_net_boundary_vector(point, vector, polygon):
         distance = np.hypot(dx, dy)
         if distance > 0:
               # Example scaling based on distance
-            vector= vector/(distance**7*abs(theta))  #Scale the vector
+            vector= vector/(distance**2*abs(theta))  #Scale the vector
             plt.plot(nearest_point.x, nearest_point.y, 'go')  # Nearest point
             plt.arrow(nearest_point.x, nearest_point.y, vector[0], vector[1], head_width=0.001, head_length=0.001,linewidth=.00001, fc='green', ec='green')
             # Add to the net vector
@@ -83,16 +98,8 @@ plt.plot(x, y, 'b-', label="Boundary")
 # Plot the current point
 plt.plot(current_point.x, current_point.y, 'ro', label="Current Point")
 
-# Plot individual vectors and the net vector
-boundary_coords = list(boundary_polygon.exterior.coords)
-for i in range(len(boundary_coords) - 1):
-    edge = LineString([boundary_coords[i], boundary_coords[i + 1]])
-    nearest_point = edge.interpolate(edge.project(current_point))
-    vector = calculate_net_boundary_vector(current_point, track_vector, boundary_polygon)
-    #plt.plot(nearest_point.x, nearest_point.y, 'go')  # Nearest point
-    #plt.arrow(nearest_point.x, nearest_point.y, vector[0], vector[1], head_width=0.0000000000000001, head_length=0.000000000000000000001, fc='green', ec='green')
 
-# Draw the net vector
+# Draw the net vector and track vector
 plt.arrow(current_point.x, current_point.y, net_vector[0], net_vector[1], head_width=0.001, head_length=0.001, linewidth=.00001, fc='red', ec='red', label="Net Vector")
 plt.arrow(current_point.x, current_point.y, normalized_vector[0], normalized_vector[1], head_width=0.001, head_length=0.001, linewidth=.00001, fc='blue', ec='blue', label="Track Vector")
 
