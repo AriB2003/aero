@@ -4,6 +4,7 @@ from mavsdk.action import OrbitYawBehavior
 
 
 async def run():
+    print("yoyoyo")
     drone = System()
     await drone.connect(system_address="udp://:14540")
 
