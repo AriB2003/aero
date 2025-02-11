@@ -17,10 +17,8 @@ if imgIn is None:
 
 # it needs to process even image only
 img_rows, img_cols = np.shape(imgIn)
-print(img_rows, img_cols)
 img_rows = img_rows & -2
 img_cols = img_cols & -2
-print(img_rows, img_cols)
 roi = imgIn[0:img_rows, 0:img_cols]
 # this is not correct code; it just creates a rectangle and I want to try and make it unnecessary
 
@@ -50,10 +48,17 @@ roi = imgIn[0:img_rows, 0:img_cols]
 
 
 def calcPSF(num_rows: int, num_cols: int, psf_length: int, psf_angle: float):
-    pass
+
     # make psf_matrix
+    psf_matrix = np.zeros((num_rows, num_cols))
+    # running psf_matrix = np.zeros((num_rows, num_cols),dtype=numpy.single)
+    # reduces precision to a 32 bit float but may make it run faster
+
     # draw an ellipse at psf_angle with psf_length in the middle of the screen
-    # return psf_matrix/np.sum(psf_matrix)
+    center = (num_rows // 2, num_cols // 2)
+    axes = (0, psf_length / 2)  # could probably just use floor division here
+    cv.ellipse(psf_matrix, center, axes, 90 - psf_angle, 0, 360, 255, -1)
+    return psf_matrix / np.sum(psf_matrix)
 
 
 #        Mat h(filterSize, CV_32F, Scalar(0));
@@ -142,6 +147,8 @@ def calcPSF(num_rows: int, num_cols: int, psf_length: int, psf_angle: float):
     }
 """
 
-cv.imshow("Display window", roi)
+psf = calcPSF(img_rows, img_cols, LEN, THETA)
+cv.imshow("PSF", psf)
+cv.imshow("Region of Interest", roi)
 # cv.imshow("Display window", imgIn)
 cv.waitKey(20000)
