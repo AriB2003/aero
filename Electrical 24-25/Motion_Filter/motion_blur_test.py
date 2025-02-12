@@ -60,19 +60,6 @@ def calcPSF(num_rows: int, num_cols: int, psf_length: int, psf_angle: float):
     # or maybe even make a gradient on the edges of the point spread
     axes = (0, psf_length // 2)  # could probably just use floor division here
     cv.ellipse(psf_matrix, center, axes, 90 - psf_angle, 0, 360, 255, -1)
-    print("sum: ", np.sum(psf_matrix))
-    print(center)
-    left = num_rows // 2 - 50
-    right = num_rows // 2 + 50
-    up = num_cols // 2 - 50
-    down = num_cols // 2 + 50
-    # psf_matrix = psf_matrix[left:right, up:down]
-    # cv.rectangle(psf_matrix, (left, up), (right, down), 255, -1)
-    # print(num_rows, num_cols)
-    # print(center)
-    print(psf_matrix.shape)
-    # print(psf_matrix[10, 10])
-    # print(psf_matrix[num_rows // 2, num_cols // 2])
     return psf_matrix / np.sum(psf_matrix)  # maybe do floor divide here
 
 
@@ -81,10 +68,8 @@ def calcPSF(num_rows: int, num_cols: int, psf_length: int, psf_angle: float):
 #        ellipse(h, point, Size(0, cvRound(float(len) / 2.0)), 90.0 - theta, 0, 360, Scalar(255), FILLED);
 #        Scalar summa = sum(h);
 #        outputImg = h / summa[0];
-#    }
-"""
-    note to self: clean up above code before continuing
 
+"""
     void fftshift(const Mat& inputImg, Mat& outputImg)
     {
         outputImg = inputImg.clone();
