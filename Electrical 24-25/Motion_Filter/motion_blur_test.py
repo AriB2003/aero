@@ -4,7 +4,7 @@ import sys
 
 print(cv.__version__)
 
-LEN = 78
+LEN = 780
 THETA = 15
 snr = 300
 
@@ -50,15 +50,30 @@ roi = imgIn[0:img_rows, 0:img_cols]
 def calcPSF(num_rows: int, num_cols: int, psf_length: int, psf_angle: float):
 
     # make psf_matrix
-    psf_matrix = np.zeros((num_rows, num_cols))
-    # running psf_matrix = np.zeros((num_rows, num_cols),dtype=numpy.single)
+    psf_matrix = np.zeros((num_rows, num_cols), dtype=np.single)
+    # running psf_matrix = np.zeros((num_rows, num_cols),dtype=np.single)
     # reduces precision to a 32 bit float but may make it run faster
 
     # draw an ellipse at psf_angle with psf_length in the middle of the screen
-    center = (num_rows // 2, num_cols // 2)
-    axes = (0, psf_length / 2)  # could probably just use floor division here
+    center = (num_cols // 2, num_rows // 2)
+    # may want to change 0 to something else to account for lateral motion blur
+    # or maybe even make a gradient on the edges of the point spread
+    axes = (0, psf_length // 2)  # could probably just use floor division here
     cv.ellipse(psf_matrix, center, axes, 90 - psf_angle, 0, 360, 255, -1)
-    return psf_matrix / np.sum(psf_matrix)
+    print("sum: ", np.sum(psf_matrix))
+    print(center)
+    left = num_rows // 2 - 50
+    right = num_rows // 2 + 50
+    up = num_cols // 2 - 50
+    down = num_cols // 2 + 50
+    # psf_matrix = psf_matrix[left:right, up:down]
+    # cv.rectangle(psf_matrix, (left, up), (right, down), 255, -1)
+    # print(num_rows, num_cols)
+    # print(center)
+    print(psf_matrix.shape)
+    # print(psf_matrix[10, 10])
+    # print(psf_matrix[num_rows // 2, num_cols // 2])
+    return psf_matrix / np.sum(psf_matrix)  # maybe do floor divide here
 
 
 #        Mat h(filterSize, CV_32F, Scalar(0));
@@ -68,6 +83,8 @@ def calcPSF(num_rows: int, num_cols: int, psf_length: int, psf_angle: float):
 #        outputImg = h / summa[0];
 #    }
 """
+    note to self: clean up above code before continuing
+
     void fftshift(const Mat& inputImg, Mat& outputImg)
     {
         outputImg = inputImg.clone();
@@ -147,8 +164,11 @@ def calcPSF(num_rows: int, num_cols: int, psf_length: int, psf_angle: float):
     }
 """
 
-psf = calcPSF(img_rows, img_cols, LEN, THETA)
-cv.imshow("PSF", psf)
-cv.imshow("Region of Interest", roi)
+psf = calcPSF(img_rows // 2, img_cols // 2, LEN, THETA)
+visible_psf = psf * 10000000
+resize_psf = cv.resize(visible_psf, (960, 540))
+cv.imshow("PSF", resize_psf)
+print(np.sum(psf))
+# cv.imshow("Region of Interest", roi)
 # cv.imshow("Display window", imgIn)
-cv.waitKey(20000)
+cv.waitKey(15000)
