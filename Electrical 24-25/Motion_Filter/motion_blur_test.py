@@ -1,3 +1,8 @@
+"""
+A Python OpenCV implementation of the OpenCV C++ linear motion deblur algorithm found at: 
+https://docs.opencv.org/4.x/d1/dfd/tutorial_motion_deblur_filter.html
+"""
+
 import cv2 as cv
 import numpy as np
 import sys
@@ -44,32 +49,48 @@ roi = imgIn[0:img_rows, 0:img_cols]
     }
 """
 
-# help function was deleted
+# note: the help function from the original c code was deleted
 
 
-def calcPSF(num_rows: int, num_cols: int, psf_length: int, psf_angle: float):
+def calc_psf(height: int, width: int, psf_length: int, psf_angle: float) -> np.ndarray:
+    """Creates a linear point spread function matrix of a specified length and angle
+    Since in this scenario the camera or scene is moving, the same pixel takes part
+    of its reading from different places in the physical space the camera is imaging.
+    This psf can be calibrated to represent which pixels we can derive the probable
+    value of a location in the image from.
+
+    C++ code:
+        Mat h(filterSize, CV_32F, Scalar(0));
+        Point point(filterSize.width / 2, filterSize.height / 2);
+        ellipse(h, point, Size(0, cvRound(float(len) / 2.0)),
+            90.0 - theta, 0, 360, Scalar(255), FILLED);
+        Scalar summa = sum(h);
+        outputImg = h / summa[0];
+
+    Args:
+        height (int): number of pixels/rows up and down the image to be deblurred
+        width (int): number of pixels/columns across the image to be deblurred
+        psf_length (int): the distance across the image that the blurring reaches
+        psf_angle (float): angle of the psf (in the direction of the motion)
+
+    Returns:
+        np.ndarray: psf matrix which has a total sum of 1
+    """
 
     # make psf_matrix
-    psf_matrix = np.zeros((num_rows, num_cols), dtype=np.single)
+    psf_matrix = np.zeros((height, width), dtype=np.single)
     # running psf_matrix = np.zeros((num_rows, num_cols),dtype=np.single)
     # reduces precision to a 32 bit float but may make it run faster
 
     # draw an ellipse at psf_angle with psf_length in the middle of the screen
-    center = (num_cols // 2, num_rows // 2)
+    center = (height // 2, width // 2)
     # may want to change 0 to something else to account for lateral motion blur
     # or maybe even make a gradient on the edges of the point spread
     axes = (0, psf_length // 2)  # could probably just use floor division here
     cv.ellipse(psf_matrix, center, axes, 90 - psf_angle, 0, 360, 255, -1)
-    return psf_matrix / np.sum(psf_matrix)  # maybe do floor divide here
+    return psf_matrix / np.sum(psf_matrix)
 
-
-#        Mat h(filterSize, CV_32F, Scalar(0));
-#        Point point(filterSize.width / 2, filterSize.height / 2);
-#        ellipse(h, point, Size(0, cvRound(float(len) / 2.0)), 90.0 - theta, 0, 360, Scalar(255), FILLED);
-#        Scalar summa = sum(h);
-#        outputImg = h / summa[0];
-
-"""
+    """
     void fftshift(const Mat& inputImg, Mat& outputImg)
     {
         outputImg = inputImg.clone();
@@ -147,9 +168,10 @@ def calcPSF(num_rows: int, num_cols: int, psf_length: int, psf_angle: float):
         Mat w = w2 * w1;
         multiply(inputImg, w, outputImg);
     }
-"""
+    """
 
-psf = calcPSF(img_rows // 2, img_cols // 2, LEN, THETA)
+
+psf = calc_psf(img_rows // 2, img_cols // 2, LEN, THETA)
 visible_psf = psf * 10000000
 resize_psf = cv.resize(visible_psf, (960, 540))
 cv.imshow("PSF", resize_psf)
