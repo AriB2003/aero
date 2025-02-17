@@ -35,15 +35,18 @@ Servo servo3;
 // 2 = Servo 3
 // 3 = All
 uint8_t servo_state = 0;
+String state_name = "";
 // 0 = Knob
-// 1 = Sweep
-// 2 = Zero
+// 1 = Zero
+// 2 = Sweep
 uint8_t knob_state = 0;
 
 // Position state variables
 long encoder_position = 0;
 long sweep_position = 0;
+bool sweep_direction = false;
 long zero_position = 0;
+long write_value = 0;
 
 // Display driver configurations
 uint8_t ADDR = 0x38;
@@ -52,6 +55,7 @@ uint8_t reg_counter = 4;
 // Display state variables
 bool update_display = true;
 uint32_t last_display_update = 0;
+uint8_t voltage_or_name = 0;
 
 // Voltage read state variables
 uint32_t last_voltage_update = 0;
@@ -185,11 +189,68 @@ void setup() {
 }
 
 void loop() {
-  update_encoder(); // This is working
-  drive_servo(); // Not started
+  update_encoder(); // Should be working
+  drive_servo(); // Should be working
   drive_display(); // Need to add states
-  read_voltage(); // This is working
+  read_voltage(); // Should be working
   compute_state(); // Not started
+}
+
+void compute_state()
+{
+  // Attach and detach servos
+  // Display state names
+  // Reset variables
+
+}
+
+void increment_servo_state()
+{
+  servo_state++;
+  servo_state = servo_state % 4;
+  switch(servo_state)
+  {
+    case 0:
+      // 0 = Servo 1
+      servo2.detach();
+      servo3.detach();
+      servo1.attach(PWM1);
+      break;
+    case 1:
+      // 1 = Servo 2
+      servo1.detach();
+      servo2.attach(PWM2);
+      break;
+    case 2:
+      // 2 = Servo 3
+      servo2.detach();
+      servo3.attach(PWM3);
+      break;
+    case 3:
+      // 3 = All
+      servo1.attach(PWM1);
+      servo2.attach(PWM2);
+      break;
+    default:
+      break;
+  }
+
+  // Display name next
+  voltage_or_name = 0;
+  // Go back to knob
+  knob_state = 0;
+  // Reset the encoder position
+  myEnc.write(0);
+}
+
+void increment_knob_state()
+{
+  knob_state++;
+  knob_state = knob_state % 3;
+  
+  // Reset the sweep
+  sweep_direction = false;
+  sweep_position = 0;
 }
 
 void drive_servo()
@@ -198,7 +259,6 @@ void drive_servo()
   {
 
     // Choose which value to write
-    long write_value = 0;
     switch(knob_state)
     {
       case 0:
@@ -206,12 +266,29 @@ void drive_servo()
         write_value = encoder_position;
         break;
       case 1:
-        // 1 = Sweep
-        write_value = sweep_position;
+        // 1 = Zero
+        write_value = zero_position;
         break;
       case 2:
-        // 2 = Zero
-        write_value = zero_position;
+        // 2 = Sweep
+        // Modify sweep value
+        if(sweep_direction)
+        {
+          sweep_position++;
+          if(sweep_position>=90)
+          {
+            sweep_direction = false;
+          }
+        }
+        else
+        {
+          sweep_position--;
+          if(sweep_position<=-90)
+          {
+            sweep_direction = true;
+          }
+        }
+        write_value = sweep_position;
         break;
       default:
         break;
@@ -222,26 +299,26 @@ void drive_servo()
     {
       case 0:
         // 0 = Servo 1
-        servo1.write(write_value+90)
+        servo1.write(write_value+90);
         break;
       case 1:
         // 1 = Servo 2
-        servo2.write(write_value+90)
+        servo2.write(write_value+90);
         break;
       case 2:
         // 2 = Servo 3
-        servo3.write(write_value+90)
+        servo3.write(write_value+90);
         break;
       case 3:
         // 3 = All
-        servo1.write(write_value+90)
-        servo2.write(write_value+90)
-        servo3.write(write_value+90)
+        servo1.write(write_value+90);
+        servo2.write(write_value+90);
+        servo3.write(write_value+90);
         break;
       default:
         break;
     }
-    
+
     last_servo_update = millis();
   }
 }
@@ -270,6 +347,7 @@ void update_encoder()
   // Read the encoder on every loop cycle
   encoder_position = myEnc.read();
   encoder_position = constrain(encoder_position, -90, 90);
+  myEnc.write(encoder_position);
 }
 
 void drive_display()
@@ -281,12 +359,45 @@ void drive_display()
   }
   else if(it_is_time(millis(),last_display_update,30))
   {
-    // Slow down display refresh rate
-    ltoa(encoder_position,buf,10);
-    for(int i=0; i<8; i++)
+    // Slow down display refresh rate to around 30 Hz
+
+    // Write the position value
+    ltoa(write_value,buf,10);
+    if(write_value<0)
     {
-      put_character_at_segment(buf[i], i);
+      put_character_at_segment("-", 0);
+      put_character_at_segment(buf[1], 1);
+      put_character_at_segment(buf[2], 2);
     }
+    else
+    {
+      put_character_at_segment(" ", 0);
+      put_character_at_segment(buf[0], 1);
+      put_character_at_segment(buf[1], 2);
+    }
+
+    // Write the voltage reading or the state name
+    voltage_or_name++;
+    // Use bit 6 with representation 64 to slow to 2 sec
+    if(voltage_or_name>>6 & 0b1)
+    {
+      // Write voltage
+      dtostrf(rail_voltage, 4, 2, buf);
+      put_character_at_segment(buf[0], 5, buf[1]);
+      put_character_at_segment(buf[2], 6);
+      put_character_at_segment(buf[3], 7);
+    }
+    else
+    {
+      // Write name
+      state_name.toCharArray(buf, 10);
+      // Srv1, Srv2, Srv3, All
+      put_character_at_segment(buf[0], 4);
+      put_character_at_segment(buf[1], 5);
+      put_character_at_segment(buf[2], 6);
+      put_character_at_segment(buf[3], 7);
+    }
+
     update_display = true;
     last_display_update = millis();
   }
@@ -297,9 +408,10 @@ void drive_display()
   }
 }
 
-void put_character_at_segment(char character, uint8_t segment)
+void put_character_at_segment(char character, uint8_t segment, char punctuation = " ");
+void put_character_at_segment(char character, uint8_t segment, char punctuation)
 {
-  uint16_t binary = get_character_binary(character);
+  uint16_t binary = get_character_binary(character) | get_character_binary(punctuation);
   uint8_t val, address;
   for(int i=0; i<16; i++)
   {
