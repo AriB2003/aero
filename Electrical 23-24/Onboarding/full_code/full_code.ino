@@ -35,11 +35,17 @@ Servo servo3;
 // 2 = Servo 3
 // 3 = All
 uint8_t servo_state = 0;
-String state_name = "";
+String state_name = "srv1";
 // 0 = Knob
 // 1 = Zero
 // 2 = Sweep
 uint8_t knob_state = 0;
+
+// Button state variables
+uint32_t button_depressed_time = 0;
+bool last_button_state = true;
+uint32_t last_button_update = 0;
+
 
 // Position state variables
 long encoder_position = 0;
@@ -170,38 +176,70 @@ void setup() {
   Wire.write(0x03); // Address 2
   Wire.write(0x00); // Toggle Blink 1 Hz
   Wire.endTransmission();
+
+  // Pin configurations (all others auto configured)
+  pinMode(BUTTON, INPUT_PULLUP);
+  pinMode(VREAD, INPUT);
   
   // Write person name on startup
-  const char person_name[] = "BOBESH";
-  for(int i=0; i<8; i++)
+  const char person_name[] = "bobesh";
+  for(uint8_t i=0; i<8; i++)
   {
-    if i<strlen(person_name)
+    if (i<strlen(person_name))
     {
       put_character_at_segment(person_name[i], i);
     }
     else
     {
-      put_character_at_segment(" ", i);
+      put_character_at_segment(' ', i);
     }
   }
-  write_to_display();
+  for(uint8_t i=0; i<20; i++)
+  {
+    write_to_display();
+  }
   delay(1500);
 }
 
 void loop() {
   update_encoder(); // Should be working
   drive_servo(); // Should be working
-  drive_display(); // Need to add states
+  drive_display(); // Should be working
   read_voltage(); // Should be working
-  compute_state(); // Not started
+  compute_state(); // Should be working
 }
 
 void compute_state()
 {
-  // Attach and detach servos
-  // Display state names
-  // Reset variables
-
+  if(it_is_time(millis(),last_button_update,25))
+  {
+    bool button_state = !digitalRead(BUTTON);
+    if(last_button_state)
+    {
+      // Was Depressed
+      if(!button_state)
+      {
+        // Now Released
+        if(millis()-button_depressed_time>1000)
+        {
+          // If held for a second you transition servo states
+          increment_servo_state();
+        }
+        else
+        {
+          // If clicked quickly you transition knob states
+          increment_knob_state();
+        }
+      }
+    }
+    else
+    {
+      // Is Released
+      button_depressed_time = millis();
+    }
+    last_button_state = button_state;
+    last_button_update = millis();
+  }
 }
 
 void increment_servo_state()
@@ -215,21 +253,25 @@ void increment_servo_state()
       servo2.detach();
       servo3.detach();
       servo1.attach(PWM1);
+      state_name = "srv1";
       break;
     case 1:
       // 1 = Servo 2
       servo1.detach();
       servo2.attach(PWM2);
+      state_name = "srv2";
       break;
     case 2:
       // 2 = Servo 3
       servo2.detach();
       servo3.attach(PWM3);
+      state_name = "srv3";
       break;
     case 3:
       // 3 = All
       servo1.attach(PWM1);
       servo2.attach(PWM2);
+      state_name = " all";
       break;
     default:
       break;
@@ -361,17 +403,23 @@ void drive_display()
   {
     // Slow down display refresh rate to around 30 Hz
 
+    // Reset display
+    for(uint8_t i=0; i<8; i++)
+    {
+      put_character_at_segment(' ', i);
+    }
+
     // Write the position value
     ltoa(write_value,buf,10);
     if(write_value<0)
     {
-      put_character_at_segment("-", 0);
+      put_character_at_segment('-', 0);
       put_character_at_segment(buf[1], 1);
       put_character_at_segment(buf[2], 2);
     }
     else
     {
-      put_character_at_segment(" ", 0);
+      put_character_at_segment(' ', 0);
       put_character_at_segment(buf[0], 1);
       put_character_at_segment(buf[1], 2);
     }
@@ -383,15 +431,16 @@ void drive_display()
     {
       // Write voltage
       dtostrf(rail_voltage, 4, 2, buf);
-      put_character_at_segment(buf[0], 5, buf[1]);
-      put_character_at_segment(buf[2], 6);
-      put_character_at_segment(buf[3], 7);
+      put_character_at_segment(buf[0], 4, buf[1]);
+      put_character_at_segment(buf[2], 5);
+      put_character_at_segment(buf[3], 6);
+      put_character_at_segment('v', 7);
     }
     else
     {
       // Write name
       state_name.toCharArray(buf, 10);
-      // Srv1, Srv2, Srv3, All
+      // srv1, srv2, srv3, All
       put_character_at_segment(buf[0], 4);
       put_character_at_segment(buf[1], 5);
       put_character_at_segment(buf[2], 6);
@@ -408,7 +457,10 @@ void drive_display()
   }
 }
 
-void put_character_at_segment(char character, uint8_t segment, char punctuation = " ");
+void put_character_at_segment(char character, uint8_t segment) 
+{
+    put_character_at_segment(character, segment, ' ');
+}
 void put_character_at_segment(char character, uint8_t segment, char punctuation)
 {
   uint16_t binary = get_character_binary(character) | get_character_binary(punctuation);
