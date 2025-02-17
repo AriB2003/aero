@@ -1,0 +1,8 @@
+ultralytics
+libopencv-dev
+python3-opencv
+math
+matplot-lib
+psutil
+csv
+time
