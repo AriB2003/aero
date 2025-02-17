@@ -35,7 +35,7 @@ Servo servo3;
 // 2 = Servo 3
 // 3 = All
 uint8_t servo_state = 0;
-String state_name = "srv1";
+String state_name = "";
 // 0 = Knob
 // 1 = Zero
 // 2 = Sweep
@@ -180,6 +180,10 @@ void setup() {
   // Pin configurations (all others auto configured)
   pinMode(BUTTON, INPUT_PULLUP);
   pinMode(VREAD, INPUT);
+
+  // Initialization parameters
+  servo1.attach(PWM1);
+  state_name = "srv1";
   
   // Write person name on startup
   const char person_name[] = "bobesh";
