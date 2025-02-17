@@ -43,7 +43,7 @@ uint8_t knob_state = 0;
 
 // Button state variables
 uint32_t button_depressed_time = 0;
-bool last_button_state = true;
+bool last_button_state = false;
 uint32_t last_button_update = 0;
 
 
