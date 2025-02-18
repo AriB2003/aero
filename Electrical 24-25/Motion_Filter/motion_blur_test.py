@@ -9,7 +9,7 @@ import sys
 
 print(cv.__version__)
 
-LEN = 780
+LEN = 780 // 2
 THETA = 15
 snr = 300
 
@@ -25,7 +25,6 @@ img_rows, img_cols = np.shape(imgIn)
 img_rows = img_rows & -2
 img_cols = img_cols & -2
 roi = imgIn[0:img_rows, 0:img_cols]
-# this is not correct code; it just creates a rectangle and I want to try and make it unnecessary
 
 # Hw calculation (start)
 # replace roi.size with img_rows and img_cols
@@ -90,6 +89,39 @@ def calc_psf(height: int, width: int, psf_length: int, psf_angle: float) -> np.n
     cv.ellipse(psf_matrix, center, axes, 90 - psf_angle, 0, 360, 255, -1)
     return psf_matrix / np.sum(psf_matrix)
 
+
+def fft_shift(input_img: np.ndarray) -> np.ndarray:
+    """Helper method to swap opposing quadrants of the psf
+    Swaps q1 with q3 and q2 with q4. This is a necessary preprocessing step for
+    the discrete fourier transform. The code in this section was modified from:
+    https://docs.opencv.org/3.4/d8/d01/tutorial_discrete_fourier_transform.html
+    This site has python, java, and c++ versions of the code; the c++ motion
+    deblur code derives its implementation directly from the c++ code here.
+
+    Args:
+        input_img (np.ndarray): matrix to be rearranged
+
+    Returns:
+        np.ndarray: the rearranged matrix
+    """
+    # code modified from the webpage the motion deblur c++ code is based on:
+    # https://docs.opencv.org/3.4/d8/d01/tutorial_discrete_fourier_transform.html
+    img_rows, img_cols = input_img.shape
+    output_img = np.empty_like(input_img)
+    cx = int(img_rows / 2)
+    cy = int(img_cols / 2)
+    q0 = input_img[0:cx, 0:cy]  # Top-Left - Create a ROI per quadrant
+    q1 = input_img[cx : cx + cx, 0:cy]  # Top-Right
+    q2 = input_img[0:cx, cy : cy + cy]  # Bottom-Left
+    q3 = input_img[cx : cx + cx, cy : cy + cy]  # Bottom-Right
+    tmp = np.copy(q0)  # swap quadrants (Top-Left with Bottom-Right)
+    output_img[0:cx, 0:cy] = q3
+    output_img[cx : cx + cx, cy : cy + cy] = tmp
+    tmp = np.copy(q1)  # swap quadrant (Top-Right with Bottom-Left)
+    output_img[cx : cx + cx, 0:cy] = q2
+    output_img[0:cx, cy : cy + cy] = tmp
+    return output_img
+
     """
     void fftshift(const Mat& inputImg, Mat& outputImg)
     {
@@ -126,22 +158,28 @@ def calc_psf(height: int, width: int, psf_length: int, psf_angle: float) -> np.n
         split(complexIH, planes);
         outputImg = planes[0];
     }
- 
-    void calcWnrFilter(const Mat& input_h_PSF, Mat& output_G, double nsr)
-    {
-        Mat h_PSF_shifted;
-        fftshift(input_h_PSF, h_PSF_shifted);
-        Mat planes[2] = { Mat_<float>(h_PSF_shifted.clone()), Mat::zeros(h_PSF_shifted.size(), CV_32F) };
-        Mat complexI;
-        merge(planes, 2, complexI);
-        dft(complexI, complexI);
-        split(complexI, planes);
-        Mat denom;
-        pow(abs(planes[0]), 2, denom);
-        denom += nsr;
-        divide(planes[0], denom, output_G);
-    }
- 
+
+    """
+
+
+def calc_wnr_filter(input_h_psf):
+    pass
+    #    void calcWnrFilter(const Mat& input_h_PSF, Mat& output_G, double nsr)
+    #    {
+    #        Mat h_PSF_shifted;
+    #        fftshift(input_h_PSF, h_PSF_shifted);
+    #        Mat planes[2] = { Mat_<float>(h_PSF_shifted.clone()), Mat::zeros(h_PSF_shifted.size(), CV_32F) };
+    #        Mat complexI;
+    #        merge(planes, 2, complexI);
+    #        dft(complexI, complexI);
+    #        split(complexI, planes);
+    #        Mat denom;
+    #        pow(abs(planes[0]), 2, denom);
+    #        denom += nsr;
+    #        divide(planes[0], denom, output_G);
+    #    }
+
+    """
     void edgetaper(const Mat& inputImg, Mat& outputImg, double gamma, double beta)
     {
         int Nx = inputImg.cols;
@@ -171,11 +209,14 @@ def calc_psf(height: int, width: int, psf_length: int, psf_angle: float) -> np.n
     """
 
 
-psf = calc_psf(img_rows // 2, img_cols // 2, LEN, THETA)
-visible_psf = psf * 10000000
-resize_psf = cv.resize(visible_psf, (960, 540))
-cv.imshow("PSF", resize_psf)
-print(np.sum(psf))
-# cv.imshow("Region of Interest", roi)
+# note: make sure that the psf is supposed to be centered around q1
+# rather than the center of the image
+visible_psf = calc_psf(img_rows // 2, img_cols // 2, LEN, THETA)
+# visible_psf = fft_shift(visible_psf)
+visible_psf = visible_psf * 1000
+# visible_psf = cv.resize(visible_psf, (960, 540))
+cv.imshow("PSF", visible_psf)
+print(np.sum(visible_psf))
+# cv.imshow("Region of Interest", fft_shift(roi))
 # cv.imshow("Display window", imgIn)
-cv.waitKey(15000)
+cv.waitKey(25000)
