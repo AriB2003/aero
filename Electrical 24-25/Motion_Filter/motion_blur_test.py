@@ -98,6 +98,22 @@ def fft_shift(input_img: np.ndarray) -> np.ndarray:
     This site has python, java, and c++ versions of the code; the c++ motion
     deblur code derives its implementation directly from the c++ code here.
 
+    C++ code:
+        outputImg = inputImg.clone();
+        int cx = outputImg.cols / 2;
+        int cy = outputImg.rows / 2;
+        Mat q0(outputImg, Rect(0, 0, cx, cy));
+        Mat q1(outputImg, Rect(cx, 0, cx, cy));
+        Mat q2(outputImg, Rect(0, cy, cx, cy));
+        Mat q3(outputImg, Rect(cx, cy, cx, cy));
+        Mat tmp;
+        q0.copyTo(tmp);
+        q3.copyTo(q0);
+        tmp.copyTo(q3);
+        q1.copyTo(tmp);
+        q2.copyTo(q1);
+        tmp.copyTo(q2);
+
     Args:
         input_img (np.ndarray): matrix to be rearranged
 
@@ -121,26 +137,7 @@ def fft_shift(input_img: np.ndarray) -> np.ndarray:
     output_img[cx : cx + cx, 0:cy] = q2
     output_img[0:cx, cy : cy + cy] = tmp
     return output_img
-
     """
-    void fftshift(const Mat& inputImg, Mat& outputImg)
-    {
-        outputImg = inputImg.clone();
-        int cx = outputImg.cols / 2;
-        int cy = outputImg.rows / 2;
-        Mat q0(outputImg, Rect(0, 0, cx, cy));
-        Mat q1(outputImg, Rect(cx, 0, cx, cy));
-        Mat q2(outputImg, Rect(0, cy, cx, cy));
-        Mat q3(outputImg, Rect(cx, cy, cx, cy));
-        Mat tmp;
-        q0.copyTo(tmp);
-        q3.copyTo(q0);
-        tmp.copyTo(q3);
-        q1.copyTo(tmp);
-        q2.copyTo(q1);
-        tmp.copyTo(q2);
-    }
- 
     void filter2DFreq(const Mat& inputImg, Mat& outputImg, const Mat& H)
     {
         Mat planes[2] = { Mat_<float>(inputImg.clone()), Mat::zeros(inputImg.size(), CV_32F) };
@@ -179,6 +176,13 @@ def calc_wnr_filter(input_h_psf):
     #        divide(planes[0], denom, output_G);
     #    }
 
+
+def edgetaper(
+    input_img: np.ndarray, gamma: float = 5.0, beta: float = 0.2
+) -> np.ndarray:
+
+    ny, nx = input_img.shape
+
     """
     void edgetaper(const Mat& inputImg, Mat& outputImg, double gamma, double beta)
     {
@@ -186,7 +190,7 @@ def calc_wnr_filter(input_h_psf):
         int Ny = inputImg.rows;
         Mat w1(1, Nx, CV_32F, Scalar(0));
         Mat w2(Ny, 1, CV_32F, Scalar(0));
- 
+
         float* p1 = w1.ptr<float>(0);
         float* p2 = w2.ptr<float>(0);
         float dx = float(2.0 * CV_PI / Nx);
@@ -217,6 +221,7 @@ visible_psf = visible_psf * 1000
 # visible_psf = cv.resize(visible_psf, (960, 540))
 cv.imshow("PSF", visible_psf)
 print(np.sum(visible_psf))
+edgetaper(visible_psf)
 # cv.imshow("Region of Interest", fft_shift(roi))
 # cv.imshow("Display window", imgIn)
 cv.waitKey(25000)

@@ -19,8 +19,17 @@ center = (2000, 1333 // 2)
 # center = (2000, 1333)
 axes = (0, 780 // 2)
 cv.ellipse(img, center, axes, 90 - 30, 0, 360, 255, -1)
+
+
 # img = cv.fastNlMeansDenoisingColored(img, None, 20, 20, 7, 15)
 # roi: cv.rectangle = cv.rectangle(0, 0, img.cols & -2, img.rows & -2)
+def banana_74(arg_thing=4):
+    print(arg_thing)
+
+
+banana_74()
+banana_74(arg_thing=3)
+
 
 cv.imshow("Display window", img)
 cv.waitKey(20000)
