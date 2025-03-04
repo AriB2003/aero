@@ -182,6 +182,19 @@ def edgetaper(
 ) -> np.ndarray:
 
     ny, nx = input_img.shape
+    w1 = np.zeros((1, nx), dtype=np.single)
+    w2 = np.zeros((ny, 1), dtype=np.single)
+
+    # dx = 2.0 * np.pi / nx
+    # x = -np.pi
+    w1 = np.linspace(-np.pi, 2.0 * np.pi, 2.0 * np.pi / nx)  # check if this works
+    w1 = 0.5 * (np.tanh((w1 + gamma / 2) / beta) - np.tanh((w1 - gamma / 2) / beta))
+
+    w2 = np.linspace(-np.pi, 2.0 * np.pi, 2.0 * np.pi / ny)  # should work like above
+    w2 = 0.5 * (np.tanh((w2 + gamma / 2) / beta) - np.tanh((w2 - gamma / 2) / beta))
+
+    w = w2 * w1  # is this how to do vector multiplication in numpy???
+    return input_img @ w  # is this right?
 
     """
     void edgetaper(const Mat& inputImg, Mat& outputImg, double gamma, double beta)
