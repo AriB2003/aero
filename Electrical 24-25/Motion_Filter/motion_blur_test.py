@@ -1,5 +1,5 @@
 """
-A Python OpenCV implementation of the OpenCV C++ linear motion deblur algorithm found at: 
+A Python OpenCV implementation of the OpenCV C++ linear motion deblur algorithm found at:
 https://docs.opencv.org/4.x/d1/dfd/tutorial_motion_deblur_filter.html
 """
 
@@ -137,6 +137,7 @@ def fft_shift(input_img: np.ndarray) -> np.ndarray:
     output_img[cx : cx + cx, 0:cy] = q2
     output_img[0:cx, cy : cy + cy] = tmp
     return output_img
+
     """
     void filter2DFreq(const Mat& inputImg, Mat& outputImg, const Mat& H)
     {
@@ -177,24 +178,26 @@ def calc_wnr_filter(input_h_psf):
     #    }
 
 
-def edgetaper(
+def edge_taper(
     input_img: np.ndarray, gamma: float = 5.0, beta: float = 0.2
 ) -> np.ndarray:
-
+    # todo: docstring
     ny, nx = input_img.shape
     w1 = np.zeros((1, nx), dtype=np.single)
     w2 = np.zeros((ny, 1), dtype=np.single)
 
-    # dx = 2.0 * np.pi / nx
-    # x = -np.pi
-    w1 = np.linspace(-np.pi, 2.0 * np.pi, 2.0 * np.pi / nx)  # check if this works
+    w1 = np.arange(-np.pi, np.pi, 2.0 * np.pi / nx)
     w1 = 0.5 * (np.tanh((w1 + gamma / 2) / beta) - np.tanh((w1 - gamma / 2) / beta))
 
-    w2 = np.linspace(-np.pi, 2.0 * np.pi, 2.0 * np.pi / ny)  # should work like above
-    w2 = 0.5 * (np.tanh((w2 + gamma / 2) / beta) - np.tanh((w2 - gamma / 2) / beta))
+    w2 = np.arange(-np.pi, np.pi, 2.0 * np.pi / ny)  # make a column
+    w2 = 0.5 * (
+        np.tanh((w2 + gamma / 2) / beta) - np.tanh((w2 - gamma / 2) / beta)
+    ).reshape((-1, 1))
+    print(np.size(w1), nx)
+    print(np.size(w2), ny)
 
-    w = w2 * w1  # is this how to do vector multiplication in numpy???
-    return input_img @ w  # is this right?
+    w = np.multiply(w2, w1)  # vector multiplication
+    return np.multiply(input_img, w)  # elementwise multiplication
 
     """
     void edgetaper(const Mat& inputImg, Mat& outputImg, double gamma, double beta)
@@ -234,7 +237,9 @@ visible_psf = visible_psf * 1000
 # visible_psf = cv.resize(visible_psf, (960, 540))
 cv.imshow("PSF", visible_psf)
 print(np.sum(visible_psf))
-edgetaper(visible_psf)
+tapered = edge_taper(roi)
+cv.imshow("Tapered", tapered)
+
 # cv.imshow("Region of Interest", fft_shift(roi))
 # cv.imshow("Display window", imgIn)
 cv.waitKey(25000)
