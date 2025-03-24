@@ -16,6 +16,8 @@ my_package/my_node.py
 my_package/object_detection_node.py
 my_package/publisher_member_function.py
 my_package/subscriber_test_function.py
+my_package/telemetry.py
+my_package/waypoints.py
 resource/my_package
 test/test_copyright.py
 test/test_flake8.py

@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 
 from std_msgs.msg import String
-
+# This listens to the topic aero_topic, currently with my_node_py
 
 class MinimalSubscriber(Node):
 

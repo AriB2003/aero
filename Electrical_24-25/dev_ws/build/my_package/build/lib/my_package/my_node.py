@@ -1,7 +1,12 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-# NO IDEA IF ANY OF THIS WORKS
+# This publishes a message with the topic aero_topic, 
+# and this can be subscribed to by subscriber_test_function
+# every time you make a change, you need to:
+#  colcon build
+# source install/setup.bash
+# ros2 run my_package talker(talked because thats what its called in setup.py)
 class MyNode(Node):
     def __init__(self):
         super().__init__('my_node')

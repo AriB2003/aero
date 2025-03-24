@@ -1,3 +1,4 @@
 [console_scripts]
 listener = my_package.subscriber_test_function:main
 talker = my_package.my_node:main
+telemetry = my_package.telemetry:main

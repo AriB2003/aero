@@ -1,0 +1,37 @@
+[0.479s] Invoking command in '/home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/src/my_package': PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/install/my_package/lib/python3.10/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/my_package build --build-base /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/build install --record /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/install.log --single-version-externally-managed install_data
+[0.638s] running egg_info
+[0.649s] writing ../../build/my_package/my_package.egg-info/PKG-INFO
+[0.649s] writing dependency_links to ../../build/my_package/my_package.egg-info/dependency_links.txt
+[0.649s] writing entry points to ../../build/my_package/my_package.egg-info/entry_points.txt
+[0.649s] writing requirements to ../../build/my_package/my_package.egg-info/requires.txt
+[0.649s] writing top-level names to ../../build/my_package/my_package.egg-info/top_level.txt
+[0.671s] reading manifest file '../../build/my_package/my_package.egg-info/SOURCES.txt'
+[0.672s] writing manifest file '../../build/my_package/my_package.egg-info/SOURCES.txt'
+[0.672s] running build
+[0.672s] running build_py
+[0.672s] copying my_package/gimbal_control_node.py -> /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/build/lib/my_package
+[0.672s] copying my_package/waypoints.py -> /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/build/lib/my_package
+[0.673s] copying my_package/drop_decision_node.py -> /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/build/lib/my_package
+[0.673s] copying my_package/my_node.py -> /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/build/lib/my_package
+[0.673s] copying my_package/telemetry.py -> /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/build/lib/my_package
+[0.673s] copying my_package/object_detection_node.py -> /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/build/lib/my_package
+[0.673s] copying my_package/subscriber_test_function.py -> /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/build/lib/my_package
+[0.673s] copying my_package/deblurring_node.py -> /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/build/lib/my_package
+[0.673s] copying my_package/publisher_member_function.py -> /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/build/lib/my_package
+[0.673s] copying my_package/__init__.py -> /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/build/lib/my_package
+[0.673s] running install
+[0.676s] running install_lib
+[0.687s] copying /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/build/lib/my_package/telemetry.py -> /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/install/my_package/lib/python3.10/site-packages/my_package
+[0.687s] byte-compiling /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/install/my_package/lib/python3.10/site-packages/my_package/telemetry.py to telemetry.cpython-310.pyc
+[0.688s] running install_data
+[0.688s] copying resource/my_package -> /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/install/my_package/share/ament_index/resource_index/packages
+[0.688s] copying package.xml -> /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/install/my_package/share/my_package
+[0.688s] running install_egg_info
+[0.699s] removing '/home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/install/my_package/lib/python3.10/site-packages/my_package-0.0.0-py3.10.egg-info' (and everything under it)
+[0.699s] Copying ../../build/my_package/my_package.egg-info to /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/install/my_package/lib/python3.10/site-packages/my_package-0.0.0-py3.10.egg-info
+[0.699s] running install_scripts
+[0.788s] Installing listener script to /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/install/my_package/lib/my_package
+[0.788s] Installing talker script to /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/install/my_package/lib/my_package
+[0.788s] Installing telemetry script to /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/install/my_package/lib/my_package
+[0.788s] writing list of installed files to '/home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/install.log'
+[0.803s] Invoked command in '/home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/src/my_package' returned '0': PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/install/my_package/lib/python3.10/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/my_package build --build-base /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/build install --record /home/zaraius/Documents/test/aero/Electrical_24-25/dev_ws/build/my_package/install.log --single-version-externally-managed install_data
