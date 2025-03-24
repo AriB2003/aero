@@ -27,6 +27,7 @@ setup(
             'talker = my_package.my_node:main',
             'listener = my_package.subscriber_test_function:main',
             'telemetry = my_package.telemetry:main',
+            'waypoints = my_package.waypoints:main',
         ],
     },
 )
