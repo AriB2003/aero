@@ -3,9 +3,10 @@ A Python OpenCV implementation of the OpenCV C++ linear motion deblur algorithm 
 https://docs.opencv.org/4.x/d1/dfd/tutorial_motion_deblur_filter.html
 """
 
+import sys
 import cv2 as cv
 import numpy as np
-import sys
+
 
 print(cv.__version__)
 
@@ -138,6 +139,27 @@ def fft_shift(input_img: np.ndarray) -> np.ndarray:
     output_img[0:cx, cy : cy + cy] = tmp
     return output_img
 
+
+def filter_2D_freq(input_img: np.ndarray, h: np.ndarray) -> np.ndarray:
+    # todo: docstring and also testing
+    planes = [
+        np.copy(input_img),
+        np.zeros((np.size(input_img)), dtype=np.single),
+    ]
+    complex_i = cv.merge(planes)
+    complex_i = cv.dft(complex_i, cv.DFT_SCALE)
+    planes = cv.split(complex_i)
+
+    planes_h = [
+        np.copy(h),
+        np.zeros((np.size(h)), dtype=np.single),
+    ]
+    complex_h = cv.merge(planes_h)
+    complex_ih = cv.mulSpectrums(complex_i, complex_h)
+    complex_ih = cv.idft(complex_ih)
+    planes = cv.split(complex_ih)
+    return planes[0]
+
     """
     void filter2DFreq(const Mat& inputImg, Mat& outputImg, const Mat& H)
     {
@@ -160,8 +182,18 @@ def fft_shift(input_img: np.ndarray) -> np.ndarray:
     """
 
 
-def calc_wnr_filter(input_h_psf):
-    pass
+def calc_wnr_filter(input_h_psf: np.ndarray, nsr: float):
+    # todo: docstring, also testing
+    h_psf_shifted = fft_shift(input_h_psf)
+    planes = [
+        np.copy(h_psf_shifted),
+        np.zeros((np.size(h_psf_shifted)), dtype=np.single),
+    ]
+    complex_i = cv.merge(planes)
+    complex_i = cv.dft(complex_i)
+    planes = cv.split(complex_i)
+    denom = nsr + np.square(np.abs(planes[0]))
+    return np.divide(planes[0], denom)
     #    void calcWnrFilter(const Mat& input_h_PSF, Mat& output_G, double nsr)
     #    {
     #        Mat h_PSF_shifted;
