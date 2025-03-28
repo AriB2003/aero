@@ -25,7 +25,7 @@ if imgIn is None:
 img_rows, img_cols = np.shape(imgIn)
 img_rows = img_rows & -2
 img_cols = img_cols & -2
-roi = imgIn[0:img_rows, 0:img_cols]
+roi_test = imgIn[0:img_rows, 0:img_cols]
 
 # Hw calculation (start)
 # replace roi.size with img_rows and img_cols
@@ -142,17 +142,19 @@ def fft_shift(input_img: np.ndarray) -> np.ndarray:
 
 def filter_2D_freq(input_img: np.ndarray, h: np.ndarray) -> np.ndarray:
     # todo: docstring and also testing
+    # print("image size: ", input_img.size())
     planes = [
         np.copy(input_img),
-        np.zeros((np.size(input_img)), dtype=np.single),
+        np.zeros(np.shape(input_img), dtype=np.single),
     ]
+    print("2dfreq planes shape: ", np.shape(planes))
     complex_i = cv.merge(planes)
     complex_i = cv.dft(complex_i, cv.DFT_SCALE)
     planes = cv.split(complex_i)
 
     planes_h = [
         np.copy(h),
-        np.zeros((np.size(h)), dtype=np.single),
+        np.zeros(np.shape(h), dtype=np.single),
     ]
     complex_h = cv.merge(planes_h)
     complex_ih = cv.mulSpectrums(complex_i, complex_h)
@@ -184,11 +186,14 @@ def filter_2D_freq(input_img: np.ndarray, h: np.ndarray) -> np.ndarray:
 
 def calc_wnr_filter(input_h_psf: np.ndarray, nsr: float):
     # todo: docstring, also testing
+    print("pre-fftshift size: ", np.shape(input_h_psf))
     h_psf_shifted = fft_shift(input_h_psf)
+    print("post-fftshift size: ", np.shape(h_psf_shifted))
     planes = [
         np.copy(h_psf_shifted),
-        np.zeros((np.size(h_psf_shifted)), dtype=np.single),
+        np.zeros(np.shape(h_psf_shifted), dtype=np.single),
     ]
+    print("fftshift planes size: ", np.shape(planes))
     complex_i = cv.merge(planes)
     complex_i = cv.dft(complex_i)
     planes = cv.split(complex_i)
@@ -267,11 +272,28 @@ visible_psf = calc_psf(img_rows // 2, img_cols // 2, LEN, THETA)
 # visible_psf = fft_shift(visible_psf)
 visible_psf = visible_psf * 1000
 # visible_psf = cv.resize(visible_psf, (960, 540))
-cv.imshow("PSF", visible_psf)
+# cv.imshow("PSF", visible_psf)
 print(np.sum(visible_psf))
-tapered = edge_taper(roi)
-cv.imshow("Tapered", tapered)
+tapered = edge_taper(roi_test)
+# cv.imshow("Tapered", tapered)
 
 # cv.imshow("Region of Interest", fft_shift(roi))
 # cv.imshow("Display window", imgIn)
-cv.waitKey(25000)
+# cv.waitKey(25000)
+
+
+# Test Full Code
+print("rows and cols", img_rows, img_cols)
+psf = calc_psf(img_rows, img_cols, LEN, THETA)
+print("psf shape", np.shape(psf))
+filter = calc_wnr_filter(psf, 1 / snr)
+tapered_img = edge_taper(imgIn)
+
+img_rows, img_cols = np.shape(imgIn)
+img_rows = img_rows & -2
+img_cols = img_cols & -2
+roi = tapered_img[0:img_rows, 0:img_cols]
+filtered_img = filter_2D_freq(roi, filter)
+
+cv.imshow("Motion-Deblurred Image", filtered_img)
+cv.waitkey(25000)
