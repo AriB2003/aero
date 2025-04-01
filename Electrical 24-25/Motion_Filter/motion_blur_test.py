@@ -10,16 +10,21 @@ import numpy as np
 
 print(cv.__version__)
 
-LEN = 780 // 2
-THETA = 15
+LEN = 125
+THETA = 0
 snr = 300
 
-imgIn = cv.imread("testblurred.jpg", cv.IMREAD_GRAYSCALE)
+
+imgIn = cv.imread("Motion_Deblur_Tutorial.jpg", cv.IMREAD_GRAYSCALE)
 
 if imgIn is None:
     sys.exit("Could not read the image.")
 
 # the C code defines a Mat here, stuff like this isn't really doable in Python
+
+# test for license plate
+imgIn = imgIn[140:180, 80:150]
+cv.imshow("Input Image", imgIn)
 
 # it needs to process even image only
 img_rows, img_cols = np.shape(imgIn)
@@ -148,6 +153,7 @@ def filter_2D_freq(input_img: np.ndarray, h: np.ndarray) -> np.ndarray:
         np.zeros(np.shape(input_img), dtype=np.single),
     ]
     print("2dfreq planes shape: ", np.shape(planes))
+    print("dtypes are", planes[0].dtype, planes[1].dtype)
     complex_i = cv.merge(planes)
     complex_i = cv.dft(complex_i, cv.DFT_SCALE)
     planes = cv.split(complex_i)
@@ -157,7 +163,7 @@ def filter_2D_freq(input_img: np.ndarray, h: np.ndarray) -> np.ndarray:
         np.zeros(np.shape(h), dtype=np.single),
     ]
     complex_h = cv.merge(planes_h)
-    complex_ih = cv.mulSpectrums(complex_i, complex_h)
+    complex_ih = cv.mulSpectrums(complex_i, complex_h, 0)
     complex_ih = cv.idft(complex_ih)
     planes = cv.split(complex_ih)
     return planes[0]
@@ -234,7 +240,7 @@ def edge_taper(
     print(np.size(w2), ny)
 
     w = np.multiply(w2, w1)  # vector multiplication
-    return np.multiply(input_img, w)  # elementwise multiplication
+    return np.float32(np.multiply(input_img, w))  # elementwise multiplication
 
     """
     void edgetaper(const Mat& inputImg, Mat& outputImg, double gamma, double beta)
@@ -293,7 +299,8 @@ img_rows, img_cols = np.shape(imgIn)
 img_rows = img_rows & -2
 img_cols = img_cols & -2
 roi = tapered_img[0:img_rows, 0:img_cols]
-filtered_img = filter_2D_freq(roi, filter)
+filtered_img = cv.normalize(filter_2D_freq(roi, filter), 0, 255, cv.NORM_MINMAX)
 
 cv.imshow("Motion-Deblurred Image", filtered_img)
-cv.waitkey(25000)
+cv.imshow("PSF", 1000 * psf)
+cv.waitKey(25000)
