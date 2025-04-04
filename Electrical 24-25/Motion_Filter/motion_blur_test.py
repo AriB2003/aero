@@ -23,7 +23,7 @@ if imgIn is None:
 # the C code defines a Mat here, stuff like this isn't really doable in Python
 
 # test for license plate
-imgIn = imgIn[140:180, 80:150]
+# imgIn = imgIn[140:180, 80:150]
 cv.imshow("Input Image", imgIn)
 
 # it needs to process even image only
@@ -88,7 +88,7 @@ def calc_psf(height: int, width: int, psf_length: int, psf_angle: float) -> np.n
     # reduces precision to a 32 bit float but may make it run faster
 
     # draw an ellipse at psf_angle with psf_length in the middle of the screen
-    center = (height // 2, width // 2)
+    center = (width // 2, height // 2)  # possibly but probably not in wrong order
     # may want to change 0 to something else to account for lateral motion blur
     # or maybe even make a gradient on the edges of the point spread
     axes = (0, psf_length // 2)  # could probably just use floor division here
@@ -302,5 +302,6 @@ roi = tapered_img[0:img_rows, 0:img_cols]
 filtered_img = cv.normalize(filter_2D_freq(roi, filter), 0, 255, cv.NORM_MINMAX)
 
 cv.imshow("Motion-Deblurred Image", filtered_img)
-cv.imshow("PSF", 1000 * psf)
+# cv.imshow("PSF", 1000 * psf)
+cv.imshow("Edge Tapered Image", tapered_img)
 cv.waitKey(25000)
