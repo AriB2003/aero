@@ -4,6 +4,7 @@ https://docs.opencv.org/4.x/d1/dfd/tutorial_motion_deblur_filter.html
 """
 
 import sys
+import time
 import cv2 as cv
 import numpy as np
 
@@ -150,7 +151,7 @@ def filter_2D_freq(input_img: np.ndarray, h: np.ndarray) -> np.ndarray:
     # print("image size: ", input_img.size())
     planes = [
         np.copy(input_img),
-        np.zeros(np.shape(input_img), dtype=np.single),
+        np.zeros(np.shape(input_img), dtype=np.float32),
     ]
     print("2dfreq planes shape: ", np.shape(planes))
     print("dtypes are", planes[0].dtype, planes[1].dtype)
@@ -226,21 +227,36 @@ def edge_taper(
 ) -> np.ndarray:
     # todo: docstring
     ny, nx = input_img.shape
-    w1 = np.zeros((1, nx), dtype=np.single)
-    w2 = np.zeros((ny, 1), dtype=np.single)
+    # w1 = np.zeros((1, ny), dtype=np.single)
+    # w2 = np.zeros((1, nx), dtype=np.single)
+    # print("w1, w2 are of shape: ", np.shape(w1), np.shape(w2))
+    # print("^^^^^^^^^^^")
 
-    w1 = np.arange(-np.pi, np.pi, 2.0 * np.pi / nx)
-    w1 = 0.5 * (np.tanh((w1 + gamma / 2) / beta) - np.tanh((w1 - gamma / 2) / beta))
+    w1 = np.arange(-np.pi, np.pi, 2.0 * np.pi / ny)
+    print(w1[-2])
+    w1 = 0.5 * (
+        np.tanh((w1 + gamma / 2) / beta) - np.tanh((w1 - gamma / 2) / beta)
+    ).reshape((-1, 1))
+    print("w1 has size ", np.shape(w1))
 
-    w2 = np.arange(-np.pi, np.pi, 2.0 * np.pi / ny)  # make a column
+    w2 = np.arange(-np.pi, np.pi, 2.0 * np.pi / nx)  # make a column
     w2 = 0.5 * (
         np.tanh((w2 + gamma / 2) / beta) - np.tanh((w2 - gamma / 2) / beta)
-    ).reshape((-1, 1))
-    print(np.size(w1), nx)
-    print(np.size(w2), ny)
+    ).reshape((1, -1))
+    print("w2 has size ", np.shape(w2))
 
     w = np.multiply(w2, w1)  # vector multiplication
-    return np.float32(np.multiply(input_img, w))  # elementwise multiplication
+    print(w[200:203, 10:13])
+    print("w is shape ", np.shape(w))
+    unconverted_tapered_img = np.multiply(input_img, w)
+    tapered_img = np.uint8(unconverted_tapered_img)
+    # elementwise multiplication
+    # cv.imshow("unconverted tapered", unconverted_tapered_img)
+    # cv.imshow("converted tapered", tapered_img)
+    # time.sleep(3)
+    print(tapered_img[200:203, 10:13])
+    print("tapered_image has shape ", np.shape(tapered_img))
+    return tapered_img
 
     """
     void edgetaper(const Mat& inputImg, Mat& outputImg, double gamma, double beta)
@@ -294,6 +310,7 @@ psf = calc_psf(img_rows, img_cols, LEN, THETA)
 print("psf shape", np.shape(psf))
 filter = calc_wnr_filter(psf, 1 / snr)
 tapered_img = edge_taper(imgIn)
+cv.imshow("Edge Tapered Image", tapered_img)
 
 img_rows, img_cols = np.shape(imgIn)
 img_rows = img_rows & -2
@@ -301,7 +318,6 @@ img_cols = img_cols & -2
 roi = tapered_img[0:img_rows, 0:img_cols]
 filtered_img = cv.normalize(filter_2D_freq(roi, filter), 0, 255, cv.NORM_MINMAX)
 
-cv.imshow("Motion-Deblurred Image", filtered_img)
+# cv.imshow("Motion-Deblurred Image", filtered_img)
 # cv.imshow("PSF", 1000 * psf)
-cv.imshow("Edge Tapered Image", tapered_img)
 cv.waitKey(25000)
