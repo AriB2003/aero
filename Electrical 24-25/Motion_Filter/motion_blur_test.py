@@ -84,7 +84,7 @@ def calc_psf(height: int, width: int, psf_length: int, psf_angle: float) -> np.n
     """
 
     # make psf_matrix
-    psf_matrix = np.zeros((height, width), dtype=np.single)
+    psf_matrix = np.zeros((height, width), dtype=np.float32)
     # running psf_matrix = np.zeros((num_rows, num_cols),dtype=np.single)
     # reduces precision to a 32 bit float but may make it run faster
 
@@ -161,7 +161,7 @@ def filter_2D_freq(input_img: np.ndarray, h: np.ndarray) -> np.ndarray:
 
     planes_h = [
         np.copy(h),
-        np.zeros(np.shape(h), dtype=np.single),
+        np.zeros(np.shape(h), dtype=np.float32),
     ]
     complex_h = cv.merge(planes_h)
     complex_ih = cv.mulSpectrums(complex_i, complex_h, 0)
@@ -198,7 +198,7 @@ def calc_wnr_filter(input_h_psf: np.ndarray, nsr: float):
     print("post-fftshift size: ", np.shape(h_psf_shifted))
     planes = [
         np.copy(h_psf_shifted),
-        np.zeros(np.shape(h_psf_shifted), dtype=np.single),
+        np.zeros(np.shape(h_psf_shifted), dtype=np.float32),
     ]
     print("fftshift planes size: ", np.shape(planes))
     complex_i = cv.merge(planes)
@@ -256,7 +256,7 @@ def edge_taper(
     # time.sleep(3)
     print(tapered_img[200:203, 10:13])
     print("tapered_image has shape ", np.shape(tapered_img))
-    return tapered_img
+    return np.float32(unconverted_tapered_img)
 
     """
     void edgetaper(const Mat& inputImg, Mat& outputImg, double gamma, double beta)
@@ -309,15 +309,25 @@ print("rows and cols", img_rows, img_cols)
 psf = calc_psf(img_rows, img_cols, LEN, THETA)
 print("psf shape", np.shape(psf))
 filter = calc_wnr_filter(psf, 1 / snr)
+# might have needed to happen
+filter = fft_shift(filter)
+cv.imshow("the filter", filter)
 tapered_img = edge_taper(imgIn)
-cv.imshow("Edge Tapered Image", tapered_img)
+# cv.imshow("Edge Tapered Image", tapered_img)
 
 img_rows, img_cols = np.shape(imgIn)
 img_rows = img_rows & -2
 img_cols = img_cols & -2
 roi = tapered_img[0:img_rows, 0:img_cols]
-filtered_img = cv.normalize(filter_2D_freq(roi, filter), 0, 255, cv.NORM_MINMAX)
+print("roi type is ", roi.dtype)
+cv.imshow("prefiltered image", roi)
+cv.waitKey(10000)
+# roi = np.float32(roi)
+non_normalized = filter_2D_freq(roi, filter)
+filtered_img = cv.normalize(non_normalized, 0, 255, cv.NORM_MINMAX)
+# filtered_img = non_normalized
 
-# cv.imshow("Motion-Deblurred Image", filtered_img)
+cv.imshow("Motion-Deblurred Image uint8", np.uint8(filtered_img))
+cv.imshow("Motion-Deblurred Image float32", filtered_img)
 # cv.imshow("PSF", 1000 * psf)
 cv.waitKey(25000)
