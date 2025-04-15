@@ -12,7 +12,9 @@ import numpy as np
 print(cv.__version__)
 
 LEN = 125
+LEN = 1
 THETA = 0
+THETA = 30
 snr = 300
 
 
@@ -196,6 +198,7 @@ def calc_wnr_filter(input_h_psf: np.ndarray, nsr: float):
     print("pre-fftshift size: ", np.shape(input_h_psf))
     h_psf_shifted = fft_shift(input_h_psf)
     print("post-fftshift size: ", np.shape(h_psf_shifted))
+    cv.imshow("shifted psf", h_psf_shifted * 1000)
     planes = [
         np.copy(h_psf_shifted),
         np.zeros(np.shape(h_psf_shifted), dtype=np.float32),
@@ -204,7 +207,10 @@ def calc_wnr_filter(input_h_psf: np.ndarray, nsr: float):
     complex_i = cv.merge(planes)
     complex_i = cv.dft(complex_i)
     planes = cv.split(complex_i)
+    cv.imshow("planes[0] ", planes[0])
+    print("size of planes is: ", np.shape(planes))
     denom = nsr + np.square(np.abs(planes[0]))
+    print("size of denom is: ", np.shape(denom))
     return np.divide(planes[0], denom)
     #    void calcWnrFilter(const Mat& input_h_PSF, Mat& output_G, double nsr)
     #    {
@@ -307,10 +313,13 @@ tapered = edge_taper(roi_test)
 # Test Full Code
 print("rows and cols", img_rows, img_cols)
 psf = calc_psf(img_rows, img_cols, LEN, THETA)
+np.set_printoptions(threshold=6)
 print("psf shape", np.shape(psf))
 filter = calc_wnr_filter(psf, 1 / snr)
 # might have needed to happen
 filter = fft_shift(filter)
+print("the filter is shape: ", filter.shape)
+
 cv.imshow("the filter", filter)
 tapered_img = edge_taper(imgIn)
 # cv.imshow("Edge Tapered Image", tapered_img)
@@ -320,14 +329,14 @@ img_rows = img_rows & -2
 img_cols = img_cols & -2
 roi = tapered_img[0:img_rows, 0:img_cols]
 print("roi type is ", roi.dtype)
-cv.imshow("prefiltered image", roi)
-cv.waitKey(10000)
+# cv.imshow("prefiltered image", roi)
+# cv.waitKey(10000)
 # roi = np.float32(roi)
 non_normalized = filter_2D_freq(roi, filter)
 filtered_img = cv.normalize(non_normalized, 0, 255, cv.NORM_MINMAX)
 # filtered_img = non_normalized
 
-cv.imshow("Motion-Deblurred Image uint8", np.uint8(filtered_img))
+# cv.imshow("Motion-Deblurred Image uint8", np.uint8(filtered_img))
 cv.imshow("Motion-Deblurred Image float32", filtered_img)
 # cv.imshow("PSF", 1000 * psf)
 cv.waitKey(25000)
