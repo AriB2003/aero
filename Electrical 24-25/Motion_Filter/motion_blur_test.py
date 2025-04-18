@@ -12,9 +12,9 @@ import numpy as np
 print(cv.__version__)
 
 LEN = 125
-LEN = 1
+# LEN = 1
 THETA = 0
-THETA = 30
+# THETA = 30
 snr = 300
 
 
@@ -133,18 +133,18 @@ def fft_shift(input_img: np.ndarray) -> np.ndarray:
     # https://docs.opencv.org/3.4/d8/d01/tutorial_discrete_fourier_transform.html
     img_rows, img_cols = input_img.shape
     output_img = np.empty_like(input_img)
-    cx = int(img_rows / 2)
-    cy = int(img_cols / 2)
-    q0 = input_img[0:cx, 0:cy]  # Top-Left - Create a ROI per quadrant
-    q1 = input_img[cx : cx + cx, 0:cy]  # Top-Right
-    q2 = input_img[0:cx, cy : cy + cy]  # Bottom-Left
-    q3 = input_img[cx : cx + cx, cy : cy + cy]  # Bottom-Right
+    cx = int(img_cols / 2)
+    cy = int(img_rows / 2)
+    q0 = input_img[0:cy, 0:cx]  # Top-Left - Create a ROI per quadrant
+    q1 = input_img[cy : cy + cy, 0:cx]  # Top-Right
+    q2 = input_img[0:cy, cx : cx + cx]  # Bottom-Left
+    q3 = input_img[cy : cy + cy, cx : cx + cx]  # Bottom-Right
     tmp = np.copy(q0)  # swap quadrants (Top-Left with Bottom-Right)
-    output_img[0:cx, 0:cy] = q3
-    output_img[cx : cx + cx, cy : cy + cy] = tmp
+    output_img[0:cy, 0:cx] = q3
+    output_img[cy : cy + cy, cx : cx + cx] = tmp
     tmp = np.copy(q1)  # swap quadrant (Top-Right with Bottom-Left)
-    output_img[cx : cx + cx, 0:cy] = q2
-    output_img[0:cx, cy : cy + cy] = tmp
+    output_img[cy : cy + cy, 0:cx] = q2
+    output_img[0:cy, cx : cx + cx] = tmp
     return output_img
 
 
@@ -157,7 +157,7 @@ def filter_2D_freq(input_img: np.ndarray, h: np.ndarray) -> np.ndarray:
     ]
     print("2dfreq planes shape: ", np.shape(planes))
     print("dtypes are", planes[0].dtype, planes[1].dtype)
-    complex_i = cv.merge(planes)
+    complex_i = cv.merge(planes, 2)
     complex_i = cv.dft(complex_i, cv.DFT_SCALE)
     planes = cv.split(complex_i)
 
@@ -314,7 +314,8 @@ tapered = edge_taper(roi_test)
 print("rows and cols", img_rows, img_cols)
 psf = calc_psf(img_rows, img_cols, LEN, THETA)
 np.set_printoptions(threshold=6)
-print("psf shape", np.shape(psf))
+print("psf shape", np.shape(psf), psf[180][320 - 63])
+cv.imshow("the psf", psf * 1000)
 filter = calc_wnr_filter(psf, 1 / snr)
 # might have needed to happen
 filter = fft_shift(filter)
