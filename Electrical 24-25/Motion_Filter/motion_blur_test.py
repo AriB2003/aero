@@ -159,13 +159,13 @@ def filter_2D_freq(input_img: np.ndarray, h: np.ndarray) -> np.ndarray:
     print("dtypes are", planes[0].dtype, planes[1].dtype)
     complex_i = cv.merge(planes, 2)
     complex_i = cv.dft(complex_i, cv.DFT_SCALE)
-    planes = cv.split(complex_i)
+    # planes = cv.split(complex_i)
 
     planes_h = [
         np.copy(h),
         np.zeros(np.shape(h), dtype=np.float32),
     ]
-    complex_h = cv.merge(planes_h)
+    complex_h = cv.merge(planes_h, 2)
     complex_ih = cv.mulSpectrums(complex_i, complex_h, 0)
     complex_ih = cv.idft(complex_ih)
     planes = cv.split(complex_ih)
@@ -198,7 +198,9 @@ def calc_wnr_filter(input_h_psf: np.ndarray, nsr: float):
     print("pre-fftshift size: ", np.shape(input_h_psf))
     h_psf_shifted = fft_shift(input_h_psf)
     print("post-fftshift size: ", np.shape(h_psf_shifted))
-    cv.imshow("shifted psf", h_psf_shifted * 1000)
+    print("the sum of the shifted psf is: ", np.sum(h_psf_shifted))
+    cv.imshow("unshifted psf", input_h_psf * 10000)
+    cv.imshow("shifted psf", h_psf_shifted * 10000)
     planes = [
         np.copy(h_psf_shifted),
         np.zeros(np.shape(h_psf_shifted), dtype=np.float32),
@@ -207,7 +209,7 @@ def calc_wnr_filter(input_h_psf: np.ndarray, nsr: float):
     complex_i = cv.merge(planes)
     complex_i = cv.dft(complex_i)
     planes = cv.split(complex_i)
-    cv.imshow("planes[0] ", planes[0])
+    cv.imshow("planes[0] ", planes[0] * 1000)
     print("size of planes is: ", np.shape(planes))
     denom = nsr + np.square(np.abs(planes[0]))
     print("size of denom is: ", np.shape(denom))
@@ -317,6 +319,7 @@ np.set_printoptions(threshold=6)
 print("psf shape", np.shape(psf), psf[180][320 - 63])
 cv.imshow("the psf", psf * 1000)
 filter = calc_wnr_filter(psf, 1 / snr)
+
 # might have needed to happen
 filter = fft_shift(filter)
 print("the filter is shape: ", filter.shape)
