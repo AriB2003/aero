@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.5)
+project( cppTest )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV2_INCLUDE_DIRS} )
+add_executable( cppTest DeblurInCpp.cpp )
+target_link_libraries( cppTest ${OpenCV_LIBS} )

@@ -14,7 +14,7 @@ print(cv.__version__)
 LEN = 125
 # LEN = 1
 THETA = 0
-# THETA = 30
+THETA = 30
 snr = 300
 
 
