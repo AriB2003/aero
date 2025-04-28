@@ -72,6 +72,12 @@ dkms.conf
 # Compiled Static libraries
 *.lai
 
+build
+
 # Executables
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,c
+
+# created images
+imrange.jpg
+result.jpg
