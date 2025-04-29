@@ -15,10 +15,10 @@ void edgetaper(const Mat& inputImg, Mat& outputImg, double gamma = 5.0, double b
  
 const String keys =
 "{help h usage ? |               | print this message             }"
-"{image          |../Motion_Deblur_Tutorial.jpg| input image name               }"
-"{LEN            |125            | length of a motion             }"
-"{THETA          |0              | angle of a motion in degrees   }"
-"{SNR            |700            | signal to noise ratio          }"
+"{image          |../wall_deblur.jpg| input image name               }"
+"{LEN            |40            | length of a motion             }"
+"{THETA          |10            | angle of a motion in degrees   }"
+"{SNR            |30            | signal to noise ratio          }"
 ;
  
 int main(int argc, char *argv[])
@@ -49,8 +49,8 @@ int main(int argc, char *argv[])
         cout << "ERROR : Image cannot be loaded..!!" << endl;
         return -1;
     }
-    imgIn = imgIn(cv::Range(140, 200), cv::Range(70, 140));
-    imwrite("../imrange.jpg", imgIn);
+    //imgIn = imgIn(cv::Range(140, 200), cv::Range(70, 140));
+    //imwrite("../imrange.jpg", imgIn);
  
     Mat imgOut;
  
