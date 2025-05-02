@@ -15,10 +15,10 @@ void edgetaper(const Mat& inputImg, Mat& outputImg, double gamma = 5.0, double b
  
 const String keys =
 "{help h usage ? |               | print this message             }"
-"{image          |../wall_deblur.jpg| input image name               }"
-"{LEN            |40            | length of a motion             }"
-"{THETA          |10            | angle of a motion in degrees   }"
-"{SNR            |30            | signal to noise ratio          }"
+"{image          |../slight_word_blur.jpg| input image name               }"
+"{LEN            |175            | length of a motion             }"
+"{THETA          |5            | angle of a motion in degrees   }"
+"{SNR            |15            | signal to noise ratio          }"
 ;
  
 int main(int argc, char *argv[])
