@@ -51,7 +51,13 @@
           "min_clearance": 0.5
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -117,8 +123,8 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.0,
-        "min_connection": 0.0,
+        "min_clearance": 0.15,
+        "min_connection": 0.25,
         "min_copper_edge_clearance": 0.5,
         "min_groove_width": 0.0,
         "min_hole_clearance": 0.25,
@@ -129,10 +135,10 @@
         "min_silk_clearance": 0.0,
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
-        "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.0,
+        "min_through_hole_diameter": 0.2,
+        "min_track_width": 0.25,
         "min_via_annular_width": 0.1,
-        "min_via_diameter": 0.5,
+        "min_via_diameter": 0.6,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
@@ -180,7 +186,9 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
+      "track_widths": [
+        0.0
+      ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -207,7 +215,12 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
@@ -458,7 +471,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -613,22 +626,6 @@
     [
       "ac125f70-6e07-49c3-8257-bb6861feb9ab",
       "Root"
-    ],
-    [
-      "403976af-865c-4620-9d9e-b85cc17f600c",
-      "Battery"
-    ],
-    [
-      "c6fe09ef-85e6-4dcd-b3cf-b838df5ad2b6",
-      "LDO"
-    ],
-    [
-      "386f1315-4ff3-4417-a784-5dc2483eff39",
-      "IMU"
-    ],
-    [
-      "7eb8098e-ca37-4ec3-8075-d4edccd4dc1b",
-      "ESP32"
     ]
   ],
   "text_variables": {}
